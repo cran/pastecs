@@ -1,0 +1,95 @@
+AutoD2                    AutoD2 analysis of a multiple time series
+CenterD2                  D2 to the center for a multiple time series
+CrossD2                   CrossD2 between two groups of multiple time series
+GetUnitText               Format a label with time units for graphs
+abund                     Sort variables by abundance
+bnr                       A data frame of several benthic species measured across a transect
+buysbal                   Buys-Ballot table
+daystoyears               Convert units from "days" to "years"
+decaverage                Decompose a time series using a moving average
+decdiff                   Decompose a time series using differences (trend elimination)
+decevf                    Decompose a time series using eigenvector filtering
+decloess                  Decompose a time series using the loess method (deseasonize)
+decmedian                 Decompose a time series using median filtering
+decreg                    Decompose a time series using a regression model
+disjoin                   Complete disjoined coded data (classes with binary code)
+disto                     Compute and plot a distogram
+escouf                    Chose variables using the Escoufier's equivalent vectors method
+extract                   Generic function to extract a submatrix or time series
+extract.abund             Extract results from an abundance analysis
+extract.escouf            Extract results from an Escoufier analysis
+extract.regul             Extract time series from a regulation process
+extract.tsd               Extract time series from a decomposition process
+extract.turnogram         Extract recalculated series according to a turnogram
+extract.turnpoints        Extract recalculated series according to turning points analysis
+first                     Get the first element of a vector
+hist.regul                Plot the histogram for a regulation
+identify.abund            Identify a break on an abundance graph
+identify.escouf           Identify a break on an Escoufier's analysis graph
+identify.local.trend      Identify break points on a local trend graph
+identify.regul            Identify points on a regulation graph
+identify.turnogram        Identify a break on a turnogram graph
+is.tseries                Is this object a time series (compatible with both R and S+)?
+last                      Get the last element in a vector
+lines.abund               Trace a line on an abundance graph
+lines.escouf              Trace a line on an Escoufier graph
+lines.hclust              Trace a line in a dendrogram
+lines.regul               Trace a line in a regulation graph
+lines.stat.slide          Trace a line in a sliding stat graph
+lines.turnpoints          Trace a line in a turning points graph
+local.trend               Calculate local trends using cumsum
+marbio                    Several plancton species measured across a transect
+marphy                    Physico-chemical records at the same stations as for marbio
+match.tol                 Internal function used for regulation
+pennington                Calculate Pennington statistics for a vector
+pgleissberg               Gleissberg distribution probability
+plot.abund                Graph of abundance analysis
+plot.escouf               Graph of Escoufier's equivalent vectors analysis
+plot.regul                Graph of a regulation
+plot.stat.slide           Graph of sliding statistics
+plot.tsd                  Graph of a time series decomposition
+plot.turnogram            Graph of a turnogram
+plot.turnpoints           Graph of turning points
+print.abund               Print abund results
+print.escouf              Print escouf results
+print.regul               Print regulation results
+print.specs.regul         Print a specs.regul object
+print.specs.tsd           Print a specs.tsd object
+print.stat.slide          Print spliding statistics
+print.summary.abund       Print the summary on an abundance sorting
+print.summary.escouf      Print the summary of an Escoufier analysis
+print.summary.regul       Print the summary of a regulation
+print.summary.tsd         Print the summary of a time series decomposition
+print.summary.turnogram   Print the summary of a turnogram object
+print.summary.turnpoints  Print a summary of turning points analysis
+print.tsd                 Print a time series decomposition
+print.turnogram           Print a turnogram
+print.turnpoints          Print turning points
+regarea                   Regulate a series using the area method
+regconst                  Regulate a series using the constant value method
+reglin                    Linear regulation of a series
+regspline                 Spline regulation of a series
+regul                     Regulation of one or several time series using various methods
+regul.adj                 Adjust regulation parameters
+regul.screen              Test various regulation parameters
+releve                    A data frame of species abundance versus time
+specs                     Generic function for creating a specs object
+specs.regul               Create a specs.regul object
+specs.tsd                 Create a specs.tsd object
+stat.desc                 Descriptive statistics
+stat.pen                  Pennington' statistics
+stat.slide                Sliding statistics for a time series
+summary.abund             Summary of an abundance analysis
+summary.escouf            Summary of an Escoufier analysis
+summary.regul             Summary of a regulation
+summary.tsd               Summary of a time series decomposition
+summary.turnogram         Summary of a turnogram
+summary.turnpoints        Summary of a turning point analysis
+trend.test                Test if an increasing or decreasing trend exists in a time series
+tsd                       Time series decomposition of one or several regular series
+tseries                   Convert a 'regul' or a 'tsd'  object into a time series
+turnogram                 Calculate a turnogram
+turnpoints                Calculate turning points
+vario                     Calculate and plot a semi-variogram
+yearstodays               Convert time units from "years" to "days"
+.gleissberg.table         Table internally used by pgleissberg

@@ -1,0 +1,5 @@
+bnr                      A data frame of 163 benthic species measured across a transect
+marbio                   Several zooplankton taxa measured across a transect
+marphy                   Physico-chemical records at the same stations as for marbio
+releve                   A data frame of six phytoplankton taxa followed in time at one station
+.gleissberg.table        Table of probabilities for the Gleissberg distribution
