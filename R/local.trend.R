@@ -7,7 +7,7 @@ function(x, k=mean(x), plotit=TRUE, type="l", cols=1:2, ltys=2:1, xlab="Time", y
 	if (length(x) < 3)
 		stop("you need at least 3 values in the series")
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)
+		# Now done with Depends: field require(stats)
 		x <- as.ts(x)
 	} else {												# We are in S+
 		x <- as.rts(x)

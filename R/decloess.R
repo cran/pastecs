@@ -34,7 +34,7 @@ function(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL, t.degree=
 		units <- attr(attr(x, "tspar"), "units")
 	}
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)		# We need ts library
+		# Now done with Depends: field require(stats)
 		if (t.degree == 2) t.degree <- 1		# Only 0 or 1 for R
 		res.stl <- stl(x, s.window=s.window, s.degree=s.degree, t.window=t.window, t.degree=t.degree, robust=robust)
 		if (trend == TRUE) {

@@ -58,7 +58,7 @@ Ibanez, F., 1991. \emph{Treatment of the data deriving from the COST 647 project
 
 \section{WARNING }{If data are too heterogeneous, results could be biased (a singularity matrix appears in the calculations).} 
 
-\seealso{ \code{\link[base]{mahalanobis}}, \code{\link[ts]{acf}} }
+\seealso{ \code{\link[base]{mahalanobis}}, \code{\link[stats]{acf}} }
 
 \examples{
 data(marphy)

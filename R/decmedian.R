@@ -66,8 +66,8 @@ function(x, type="additive", order=1, times=1, ends="fill") {
 	} else {
 		residuals <- x / filtered
 	}
-	if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
-		require(ts)		# We need ts library
+	#if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
+		# Now done with Depends: field require(stats)
 	series <- ts.union(filtered, residuals)
 	# create our own 'tsd' structure
 	res <- list(ts="series", series=series, units=units, specs=specs, call=call)

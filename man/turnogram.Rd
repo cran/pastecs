@@ -69,7 +69,7 @@ Wallis, W.A. & G.H. Moore, 1941. \emph{A significance test for time series.} Nat
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\seealso{ \code{\link{pgleissberg}}, \code{\link{turnpoints}}, \code{\link{first}}, \code{\link{last}}, \code{\link{vario}}, \code{\link[ts]{spectrum}} }
+\seealso{ \code{\link{pgleissberg}}, \code{\link{turnpoints}}, \code{\link{first}}, \code{\link{last}}, \code{\link{vario}}, \code{\link[stats]{spectrum}} }
 
 \examples{
 data(bnr)

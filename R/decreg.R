@@ -6,7 +6,7 @@ function(x, xreg, type="additive") {
 	if (length(x) != length(xreg))
 		stop("x and xreg must have same row number")	
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)		# We need ts library
+		# Now done with Depends: field require(stats)
 		x <- as.ts(x)
 		xreg <- as.ts(xreg)
 		# Make sure "tsp" attributes are the same for both series

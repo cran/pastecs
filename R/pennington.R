@@ -116,7 +116,7 @@ function(x, calc="all", na.rm=FALSE) {
 		M <- length(LogVal)
 		# Calculation of mean and variance
 		MeanLogVal <- mean(LogVal)
-		VarLogVal <- var(LogVal)
+		if (M == 0) VarLogVal <- NaN else VarLogVal <- var(LogVal)
 		# Depending on the calc arg, we calculate the mean, var or var.mean
 		Result <- switch(calc,
 			mean = pen.mean(N, M, MeanLogVal, VarLogVal),

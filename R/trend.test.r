@@ -2,7 +2,7 @@
 function(tseries, R=1) {
 	Call <- deparse(substitute(tseries))
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)
+		# Now done with Depends: field require(stats)
 		x <- as.ts(as.matrix(tseries))
 		Names <- colnames(x)
 	} else {												# We are in S+
@@ -38,7 +38,6 @@ function(tseries, R=1) {
 		}	
 		if (exists("is.R") && is.function(is.R) && is.R()) {		# We are in R
 			require(boot)
-			
 			if (is.matrix(x) == TRUE && ncol(x) > 1) {
 				res <- tsboot(x, test.trends, R = R, sim = "fixed", l = 1)
 			} else {

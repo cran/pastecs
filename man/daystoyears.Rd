@@ -20,7 +20,12 @@ yearstodays(x, xmin=NULL)
   \item{xmin}{ The minimum value for the "days" time-scale }
 }
 \details{
-  The "years" time-scale uses one unit for each year. We deliberately "linearized" time in this time-scale and each year has 365.25 days. There is thus no adjustment for bissextile years. Similarly, one month is considered to be 1/12 year, no mather if it has 28, 29, 30 or 31 days. This representation simplifies further calculations, especially regarding seasonal effects (a quarter is exactly 0.25 units for instance), but introduces some shifts in time (of up to one day, which is not significant when working on long-term series with years as units). However, converting it back to "days", using \code{yearstodays()} restablishes correct initial days without errors. 
+  The "years" time-scale uses one unit for each year. We deliberately "linearized" time in this time-scale and each year is considered to have exactly 365.25 days. There is thus no adjustment for lep years.
+  Indeed, a small shift (less than one day) is introduced. This could result, for some dates, especially the 31st December, or 1st January of a year to be considered as belonging to the next, or previous year, respectively!
+  Similarly, one month is considered to be 1/12 year, no mather if it has 28, 29, 30 or 31 days. Thus, the same warning applies: there are shifts in months introduced by this linearization of time!
+  This representation simplifies further calculations, especially regarding seasonal effects (a quarter is exactly 0.25 units for instance), but shifts introduced in time may or may not be a problem for your particular application
+  (if exact dates matters, do not use this; if shifts of up to one day is not significant, there is no problem, like when working on long-term biological series with years as units).
+  Notice that converting it back to "days", using \code{yearstodays()} restablishes exact dates without errors. So, no data is lost, it just a conversion to a simplified (linearized) calendar!
 }
 \value{
   A numerical vector of the same length as \code{x} with the converted time-scale
@@ -37,5 +42,9 @@ B <- daystoyears(A, datemin="23/05/2001", dateformat="d/m/Y")
 B
 # Convert it back to "days" time-scale
 yearstodays(B, xmin=30)
+
+# Here is an example showing the shift introduced, and its consequence:
+C <- daystoyears(unclass(as.Date(c("1970-1-1","1971-1-1","1972-1-1","1973-1-1"))))
+C
 }
 \keyword{ ts }

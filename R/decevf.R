@@ -33,7 +33,7 @@ function(x, type="additive", lag=5, axes=1:2) {
 	}
 	# perform filtering
 	if (exists("is.R") && is.function(is.R) && is.R()) { # We are in R
-		require(mva)
+		# Now done with Depends: field require(stats)
 		# Create the matrix with lagged series from 0 to lag
 		xlagmat <- embed(x, lag)
 	} else {	# We are in S+
@@ -66,7 +66,7 @@ function(x, type="additive", lag=5, axes=1:2) {
 		filtered <- rts(filtered, start=start(x), frequency=frequency(x))
 	}
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)		# We need ts library
+		# Now done with Depends: field require(stats)
 	} else {		# We are in S+
 		attr(filtered, "tspar") <- attr(x, "tspar") 	# This is to avoid a warning under S+
 	}

@@ -3,7 +3,7 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 	# But here we also offer the possibility of using an additive model
 	call <- match.call()
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)
+		# Now done with Depends: field require(stats)
 		x <- as.ts(x)
 	} else {												# We are in S+
 		x <- as.rts(x)

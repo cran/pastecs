@@ -44,7 +44,7 @@ function(x, type="additive", lag=1, order=1, ends="fill") {
 		units <- attr(attr(x, "tspar"), "units")
 	}
 	if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
-		require(ts)		# We need ts library
+		# Now done with Depends: field require(stats)
 	# The next function add enough data to the left (either NA or the mean of first few values)
 	# to obtain a series of the same length as x after difference
 	padleft <- function(x, Lag, fill) {

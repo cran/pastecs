@@ -3,7 +3,7 @@ function(series, window=nrow(series)/5, plotit=TRUE, add=FALSE, type="l", level=
 	call <- match.call()
 	data <- deparse(substitute(series))
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		require(ts)
+		# Now done with Depends: field require(stats)
 		if (is.null(class(series)) || class(series)[1] != "mts")
 			stop("series must be a multiple regular time series object")
 		Unit <- attr(series, "units")

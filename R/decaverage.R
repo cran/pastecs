@@ -126,7 +126,7 @@ function(x, type="additive", order=1, times=1, sides=2, ends="fill", weights=NUL
 	}
 	n <- length(x)
 	if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
-		require(ts)		# We need ts library
+		# Now done with Depends: field require(stats)
 	filtered <- x						# We don't change the initial series, but a copy of it
 	filt <- weights/sum(weights)		# Scale down weights
 	for (i in 1:times) {

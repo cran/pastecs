@@ -29,7 +29,7 @@ Lancaster, P. & K. Salkauskas, 1986. \emph{Curve and surface fitting.} Academic 
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 \note{ This function uses \code{spline()} for internal calculations. However, interpolated values are not allowed to be higher than the largest initial observation or lower than the smallest one. }
 
-\seealso{ \code{\link{regul}}, \code{\link{regarea}}, \code{\link{regconst}}, \code{\link{reglin}}, \code{\link{regul.screen}}, \code{\link{regul.adj}}, \code{\link{tseries}}, \code{\link{is.tseries}}, \code{\link[base]{splinefun}} }
+\seealso{ \code{\link{regul}}, \code{\link{regarea}}, \code{\link{regconst}}, \code{\link{reglin}}, \code{\link{regul.screen}}, \code{\link{regul.adj}}, \code{\link{tseries}}, \code{\link{is.tseries}}, \code{\link[stats]{splinefun}} }
 
 \examples{
 data(releve)
