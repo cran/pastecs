@@ -3,7 +3,7 @@ function(x, label.pts=FALSE, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...) {
 	p <- length(x$p.log.ind)
 	Xcoords <- (1:p)
 	if (label.pts == FALSE) {			# We want to identify a break
-		n <- identify(c(Xcoords, Xcoords, Xcoords), c(x$p.log.ind, x$cumsum, x$p.nonull), n=1, plot=F)
+		n <- identify(c(Xcoords, Xcoords, Xcoords), c(x$p.log.ind, x$cumsum, x$p.nonull), n=1, plot=FALSE)
 		if (length(n)==0)	# Operation aborted!
 			stop("No position indicated on the graph!")
 		if (n > p) n <- n - p		# We didn't clicked on the first curve

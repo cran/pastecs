@@ -8,7 +8,7 @@ function(x, lhorz=TRUE, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...) {
 	# Scale RV' to the same range as RV
 	RVds <- (RVd-min(RVd))/max(RVd)*(max(x$RV)-min(x$RV))+min(x$RV)
 	Xcoords <- (1:n)+0.5
-	pos <- identify(c(Xcoords, Xcoords), c(x$RV[1:n], RVds), n=1, plot=F)
+	pos <- identify(c(Xcoords, Xcoords), c(x$RV[1:n], RVds), n=1, plot=FALSE)
 	if (length(pos)==0)	# Operation aborted!
 		stop("No position indicated on the graph!")
 	if (pos>n) pos <- pos-n		# We clicked on the RV.diff curve

@@ -2,9 +2,9 @@
 function(x, lvert=TRUE, col=2, lty=2, ...) {
 	n <- length(x$interval)
 	if (x$type == "Complete") {
-		pos <- identify(c(x$interval, x$interval, x$interval), c(x$info, x$info.min, x$info.max), n=1, plot=F)
+		pos <- identify(c(x$interval, x$interval, x$interval), c(x$info, x$info.min, x$info.max), n=1, plot=FALSE)
 	} else {
-		pos <- identify(x$interval, x$info, n=1, plot=F)
+		pos <- identify(x$interval, x$info, n=1, plot=FALSE)
 	}
 	if (length(pos)==0)	# Operation aborted!
 		stop("No position indicated on the graph!")

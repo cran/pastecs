@@ -1,5 +1,5 @@
 "regul.screen" <-
-function(x, weight=NULL, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm=T)-min(x, na.rm=T))/(length(x)-1), tol=deltat/5, tol.type="both") {
+function(x, weight=NULL, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm=TRUE)-min(x, na.rm=TRUE))/(length(x)-1), tol=deltat/5, tol.type="both") {
 
 	regul.screen.calc <- function(x, weight, xmin, deltat, tol, tol.type) {
 		xmin <- xmin

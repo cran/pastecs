@@ -1,5 +1,5 @@
 "regspline" <-
-function (x, y=NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rule=1, periodic=F) {
+function (x, y=NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rule=1, periodic=FALSE) {
 	# We use spline() for the calculations
 	# but we first need to calculate xmax
 	if (n <= 0) 

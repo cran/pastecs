@@ -1,5 +1,5 @@
 "regul.adj" <-
-function(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm=T)-min(x, na.rm=T))/(length(x)-1), tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), xlab=paste("Time distance"), ylab=paste("Frequency"), main="Number of matching observations", plotit=TRUE, ...) {
+function(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm=TRUE)-min(x, na.rm=TRUE))/(length(x)-1), tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), xlab=paste("Time distance"), ylab=paste("Frequency"), main="Number of matching observations", plotit=TRUE, ...) {
 	xmin <- xmin
 	frequency <- frequency
 	deltat <- deltat
@@ -50,7 +50,7 @@ function(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm=T)-min(x, na.rm=T)
 		Data[is.infinite(Data)] <- HT 			# Inf are replaced by a value higher than Tol
 		Data[Data == 0] <- -0.00001				# For putting exact matching values in a separate category
 		# Don't draw, but get vectors of results
-		res <- hist(Data, nclass=nclass, plot=F)
+		res <- hist(Data, nclass=nclass, plot=FALSE)
 		classes <- res$breaks[2:length(res$breaks)]
 		ncl <- length(classes)
 		classes[ncl] <- Inf

@@ -5,7 +5,7 @@
   Calculate and plot an histogram of the distances between interpolated observations in a regulated time series and closest observations in the initial irregular time series. This allows to optimise the \code{tol} parameter
 }
 \synopsis{
-regul.adj(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm = T) - min(x, na.rm = T))/(length(x) - 1), tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), xlab=paste("Time distance"), ylab=paste("Frequency"), main="Number of matching observations", plotit=TRUE, ...)
+regul.adj(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm = TRUE) - min(x, na.rm = TRUE))/(length(x) - 1), tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), xlab=paste("Time distance"), ylab=paste("Frequency"), main="Number of matching observations", plotit=TRUE, ...)
 }
 \usage{
 regul.adj(x, xmin=min(x), frequency=NULL, deltat, tol=deltat,

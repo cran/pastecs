@@ -7,7 +7,7 @@
 \usage{
 regarea(x, y=NULL, xmin=min(x), n=length(x),
         deltat=(max(x) - min(x))/(n - 1), rule=1,
-        window=deltat, interp=F, split=100)
+        window=deltat, interp=FALSE, split=100)
 }
 \arguments{
   \item{x}{ a vector with time in the irregular series. Missing values are allowed }

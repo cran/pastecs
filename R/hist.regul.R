@@ -11,7 +11,7 @@ function(x, nclass=30, col=c(4, 5, 2), xlab=paste("Time distance in", x$units, "
 		Data[is.infinite(Data)] <- HT 			# Inf are replaced by a value higher than Tol
 		Data[Data == 0] <- -0.00001				# For putting exact matching values in a separate category
 		# Don't draw, but get vectors of results
-		res <- hist(Data, nclass=nclass, plot=F)
+		res <- hist(Data, nclass=nclass, plot=FALSE)
 		classes <- res$breaks[2:length(res$breaks)]
 		ncl <- length(classes)
 		classes[ncl] <- Inf

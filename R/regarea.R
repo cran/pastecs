@@ -1,5 +1,5 @@
 "regarea" <-
-function (x, y = NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rule=1, window=deltat, interp=F, split=100) {
+function (x, y = NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rule=1, window=deltat, interp=FALSE, split=100) {
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
 		x <- xy.coords(x, y)
 		y <- x$y

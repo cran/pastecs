@@ -15,7 +15,7 @@
   Regulate irregular time series or regular time series with gaps. Create a \code{regul} object from whose one or several regular time series can be extracted using \code{extract()} or \code{tseries()}. This is the function to apply most of the time to create regular time series ('rts' objects in Splus or 'ts' objects in \R) that will be further analyzed by other functions that apply to regular time series.
 }
 \synopsis{
-regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=F, window=(max(x) - min(x))/(n - 1), split=100, specs=NULL) 
+regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=FALSE, window=(max(x) - min(x))/(n - 1), split=100, specs=NULL) 
 extract.regul(e, n, series=NULL, ...)
 hist.regul(x, nclass=30, col=c(4, 5, 2), xlab=paste("Time distance in", x$units, "with start =", min(x$x), , ylab=paste("Frequency, tol =", x$specs$tol), main="Number of matching observations", plotit=TRUE, ...)
 identify.regul(x, series=1, col=3, label="#", ...)
@@ -30,7 +30,7 @@ summary.regul(object, ...)
 \usage{
 regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL,
         deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL,
-        tol.type="both", methods="linear", rule=1, f=0, periodic=F,
+        tol.type="both", methods="linear", rule=1, f=0, periodic=FALSE,
         window=(max(x) - min(x))/(n - 1), split=100, specs=NULL)
 \method{summary}{regul}(reg)
 \method{plot}{regul}(reg, series=1, col=c(1, 2), lty, plot.pts=TRUE,

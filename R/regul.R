@@ -1,5 +1,5 @@
 "regul" <-
-function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=F, window=(max(x)-min(x))/(n-1), split=100, specs=NULL) {
+function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=FALSE, window=(max(x)-min(x))/(n-1), split=100, specs=NULL) {
 	call <- match.call()
 	# Do we have specs?
 	if (!is.null(specs)) {
