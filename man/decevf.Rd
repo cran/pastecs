@@ -37,7 +37,6 @@ melo.regy <- regul(releve$Day, releve$Melosul, xmin=9, n=87,
         units="daystoyears", frequency=24, tol=2.2, methods="linear",
         datemin="21/03/1989", dateformat="d/m/Y")
 melo.ts <- tseries(melo.regy)
-library(ts)
 acf(melo.ts)
 # Autocorrelation is not significant after 0.16
 # That corresponds to a lag of 0.16*24=4 (frequency=24)
