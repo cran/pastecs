@@ -33,7 +33,6 @@ is.tseries                Is this object a time series (compatible with both R a
 last                      Get the last element in a vector
 lines.abund               Trace a line on an abundance graph
 lines.escouf              Trace a line on an Escoufier graph
-lines.hclust              Trace a line in a dendrogram
 lines.regul               Trace a line in a regulation graph
 lines.stat.slide          Trace a line in a sliding stat graph
 lines.turnpoints          Trace a line in a turning points graph

@@ -24,9 +24,13 @@ summary.escouf(object, ...)
 \usage{
 escouf(x, level=1, verbose=TRUE)
 \method{summary}{escouf}(esc)
-\method{plot}{escouf}(esc, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, diff=TRUE, dlab="RV' (units not shown)", dcol=4, dlty=par("lty"), dpos=0.8, \dots)
-\method{lines}{escouf}(esc, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, \dots)
-\method{identify}{escouf}(esc, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, \dots)
+\method{plot}{escouf}(esc, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE,
+        lcol=2, llty=2, diff=TRUE, dlab="RV' (units not shown)", dcol=4,
+        dlty=par("lty"), dpos=0.8, \dots)
+\method{lines}{escouf}(esc, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE,
+        lcol=2, llty=2, \dots)
+\method{identify}{escouf}(esc, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2,
+        llty=2, \dots)
 \method{extract}{escouf}(esc, n=NULL, level=e$level)
 }
 \arguments{

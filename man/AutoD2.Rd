@@ -7,9 +7,12 @@
   Compute and plot multiple autocorrelation using Mahalanobis generalized distance D2. AutoD2 uses the same multiple time-series. CrossD2 compares two sets of multiple time-series having same size (same number of descriptors). CenterD2 compares subsamples issued from a single multivariate time-series, aiming to detect discontinuities.
 }
 \usage{
-AutoD2(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE, ...)
-CrossD2(series, series2, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE, ...)
-CenterD2(series, window=nrow(series)/5, plotit=TRUE, add=FALSE, type="l", level=0.05, lhorz=TRUE, lcol=2, llty=2, ...)
+AutoD2(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE,
+        add=FALSE, ...)
+CrossD2(series, series2, lags=c(1, nrow(series)/3), step=1,
+        plotit=TRUE, add=FALSE, ...)
+CenterD2(series, window=nrow(series)/5, plotit=TRUE, add=FALSE,
+        type="l", level=0.05, lhorz=TRUE, lcol=2, llty=2, ...)
 }
 \arguments{
   \item{series}{ regularized multiple time-series }
@@ -61,17 +64,18 @@ Ibanez, F., 1991. \emph{Treatment of the data deriving from the COST 647 project
 data(marphy)
 marphy.ts <- as.ts(as.matrix(marphy[, 1:3]))
 AutoD2(marphy.ts)
-marphy.ts2 <- as.ts(as.matrix(marphy[, c(1,4,3)]))
+marphy.ts2 <- as.ts(as.matrix(marphy[, c(1, 4, 3)]))
 CrossD2(marphy.ts, marphy.ts2)
 # This is not identical to:
 CrossD2(marphy.ts2, marphy.ts)
 marphy.d2 <- CenterD2(marphy.ts, window=16)
-lines(c(17,17), c(-1,15), col=4, lty=2)
-lines(c(25,25), c(-1,15), col=4, lty=2)
-lines(c(30,30), c(-1,15), col=4, lty=2)
-lines(c(41,41), c(-1,15), col=4, lty=2)
-lines(c(46,46), c(-1,15), col=4, lty=2)
-text(c(8.5,21,27.5,35,43.5,57), 11, labels=c("Peripheral Zone", "D1", "C", "Front", "D2", "Central Zone")) # Labels
+lines(c(17, 17), c(-1, 15), col=4, lty=2)
+lines(c(25, 25), c(-1, 15), col=4, lty=2)
+lines(c(30, 30), c(-1, 15), col=4, lty=2)
+lines(c(41, 41), c(-1, 15), col=4, lty=2)
+lines(c(46, 46), c(-1, 15), col=4, lty=2)
+text(c(8.5, 21, 27.5, 35, 43.5, 57), 11, labels=c("Peripheral Zone", "D1",
+        "C", "Front", "D2", "Central Zone")) # Labels
 time(marphy.ts)[marphy.d2$D2 > marphy.d2$chisq]
 }
 

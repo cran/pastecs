@@ -33,7 +33,7 @@ Abundances are expressed in no per cubic meter of seawater.
     \item{Ostracods}{Various species of ostracods - omnivorous}
     \item{Pteropods}{Various species of pteropods - herbivorous}
     \item{Siphonophores}{Various species of siphonophores - carnivorous}
-    \item{BellsOfCalycophores}{Bells of calycophores}
+    \item{BellsOfCalycophores}{Bells of calycophores - misc}
   }
 }
 \details{

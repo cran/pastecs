@@ -28,9 +28,14 @@ specs.regul(x, ...)
 summary.regul(object, ...)
 }
 \usage{
-regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=F, window=(max(x) - min(x))/(n - 1), split=100, specs=NULL)
+regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL,
+        deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL,
+        tol.type="both", methods="linear", rule=1, f=0, periodic=F,
+        window=(max(x) - min(x))/(n - 1), split=100, specs=NULL)
 \method{summary}{regul}(reg)
-\method{plot}{regul}(reg, series=1, col=c(1, 2), lty, plot.pts=TRUE, leg=FALSE, llab=c("initial", x$specs$methods[series]), lpos=c(1.5, 10), \dots)
+\method{plot}{regul}(reg, series=1, col=c(1, 2), lty, plot.pts=TRUE,
+        leg=FALSE, llab=c("initial", x$specs$methods[series]),
+        lpos=c(1.5, 10), \dots)
 \method{lines}{regul}(reg, series=1, col=3, lty=1, plot.pts=TRUE, \dots)
 \method{identify}{regul}(reg, series=1, col=3, label="#", \dots)
 \method{hist}{regul}(reg, nclass=30, col=c(4, 5, 2), plotit=TRUE, \dots)
@@ -46,7 +51,7 @@ regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=
   \item{frequency}{ the frequency of the regulated time series in the corresponding time unit. For instance, \code{frequency=12} with \code{units="years"} means montly sampled observations. Warning! When using \code{units="daystoyears"}, specify \code{frequency} (or \code{deltat}) in years! }
   \item{deltat}{ the interval between two observations in the regulated time series. It is the inverse of \code{frequency}. If both \code{frequency} and \code{deltat} are provided, then \code{frequency} supersedes \code{deltat} }
   \item{datemin}{ this is mostly useful for converting "days" in "years" time-scales (\code{units="daystoyears"}). If the \code{x} vector contains: 1, 3, 6,... (day \#1, day \#3, day \#6,... of the experiment), one can give here the exact date of the first observation, allowing to define a correct origin in the "years" time scale. Provide a string in a format compatible with \code{dateformat}. For instance, if day \#1 is the 21th March 1998, give \code{datemin="03/21/1998"} with \code{dateformat="m/d/Y"} }
-  \item{dateformat}{ indicate how \code{datemin} is formated. For instance: \code{"d/m/Y"}, or \code{"m/d/Y"} (by default), see \code{daystoyears()} for more info on date formatting }
+  \item{dateformat}{ indicate how \code{datemin} is formated. For instance: \code{"d/m/Y"}, or \code{m/d/Y"} (by default), see \code{daystoyears()} for more info on date formatting }
   \item{tol}{ the tolerance in the time-scale to determine if a measured value is used to approximate a regulated value. If \code{tol=0}, observations in each respective series must match exactly, otherwise observations in the regulated series are interpolated. \code{tol} must be a round fraction of \code{deltat} (deltat, deltat/2, deltat/3, etc...), and cannot be larger than it, otherwise, \code{tol} is automatically adjusted to the closest allowed value. By default, \code{tol=NULL}. This is equivalent to \code{tol=0}. Warning! In the particular case of \code{units="daystoyears"}, \code{tol} must be expressed in the original time-scale, that is "days", while \code{deltat} must be expressed in the fimal time-scale, that is "years"! }
   \item{tol.type}{ the type of adjustment to use for the time-tolerance: \code{"left"}, \code{"right"}, \code{"both"} (by default) or \code{"none"}. If \code{tol.type="left"}, corresponding \code{x} values are seeked in a window ]xregul-tol, xregul]. If \code{tol.type="right"}, they are seeked in the window [xregul, xregul+tol[. If \code{tol.type="both"}, then they are seeked in the window ]xregul-tol, xregul+tol]. If several observations are in this window, the closest one is used. Finally, if \code{tol.type="none"}, then \emph{all} observations in the regulated time series are interpolated (even if exactly matching observations exist!) }
   \item{methods}{ the method(s) to use to regulate the time series. Currently, it can be: \code{"constant"}, \code{"linear"}, \code{"spline"} or \code{"area"} (or a unique abbreviation of them). If several time series are provided (\code{y} is a matrix or a data frame), it is possible to define methods individually for each series. For instance, \code{methods=c("l", "a", "s")} defines the "linear" method for the first series, the "area" method for the second one, the "spline" method for the third one,... and again the "linear" for the fourth, the "area" for the fifth one, etc. (recycling rule). By default, the "linear" method is selected for all series }
@@ -96,8 +101,9 @@ intervals <- releve$Day[2:61]-releve$Day[1:60]
 intervals
 range(intervals)
 mean(intervals)
-# The series must be regulated before being converted into usable time series objects
-rel.reg <- regul(releve$Day, releve[3:8], xmin=9, n=63, deltat=21, tol=1.05, methods=c("s","c","l","a","s","a"), window=21)
+# The series must be regulated to be converted in a 'rts' or 'ts object
+rel.reg <- regul(releve$Day, releve[3:8], xmin=9, n=63, deltat=21,
+        tol=1.05, methods=c("s","c","l","a","s","a"), window=21)
 rel.reg
 plot(rel.reg, 5)
 specs(rel.reg)
@@ -105,9 +111,11 @@ specs(rel.reg)
 melo.ts <- extract(rel.reg, series="Melosul")
 is.tseries(melo.ts)
 
-# It is possible to convert time-scale from "days" to "years" during regulation
+# One can convert time-scale from "days" to "years" during regulation
 # This is most useful for analyzing seasonal cycles in a second step
-melo.regy <- regul(releve$Day, releve$Melosul, xmin=6, n=87, units="daystoyears", frequency=24, tol=2.2, methods="linear", datemin="21/03/1989", dateformat="d/m/Y")
+melo.regy <- regul(releve$Day, releve$Melosul, xmin=6, n=87,
+        units="daystoyears", frequency=24, tol=2.2, methods="linear",
+        datemin="21/03/1989", dateformat="d/m/Y")
 melo.regy
 plot(melo.regy, main="Regulation of Melosul")
 # In this case, we have only one series in 'melo.regy'

@@ -33,15 +33,19 @@ Ibanez, F., J.C. Dauvin & M. Etienne, 1993. \emph{Comparaison des évolutions à l
 
 \examples{
 data(releve)
-melo.regy <- regul(releve$Day, releve$Melosul, xmin=9, n=87, units="daystoyears", frequency=24, tol=2.2, methods="linear", datemin="21/03/1989", dateformat="d/m/Y")
+melo.regy <- regul(releve$Day, releve$Melosul, xmin=9, n=87,
+        units="daystoyears", frequency=24, tol=2.2, methods="linear",
+        datemin="21/03/1989", dateformat="d/m/Y")
 melo.ts <- tseries(melo.regy)
 library(ts)
 acf(melo.ts)
-# Autocorrelation is not significant after 0.16, that corresponds to a lag of 0.16*24=4 (frequency=24)
+# Autocorrelation is not significant after 0.16
+# That corresponds to a lag of 0.16*24=4 (frequency=24)
 melo.evf <- decevf(melo.ts, lag=4, axes=1)
-plot(melo.evf, col=c(1,4,2))
+plot(melo.evf, col=c(1, 4, 2))
 # A superposed graph is better in the present case
-plot(melo.evf, col=c(1,4), xlab="stations", stack=F, resid=F, lpos=c(0, 60000))
+plot(melo.evf, col=c(1, 4), xlab="stations", stack=FALSE, resid=FALSE,
+        lpos=c(0, 60000))
 }
 \keyword{ ts }
 \keyword{ smooth }

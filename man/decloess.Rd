@@ -5,7 +5,8 @@
   Compute a seasonal decomposition of a regular time series using a LOESS method (local polynomial regression)
 }
 \usage{
-decloess(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL, t.degree=2, robust=FALSE, trend=FALSE)
+decloess(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL,
+        t.degree=2, robust=FALSE, trend=FALSE)
 }
 \arguments{
   \item{x}{ a regular time series ('rts' under S+ and 'ts' under R) }
@@ -34,7 +35,9 @@ Cleveland, R.B.,  W.S. Cleveland, J.E. McRae, & I. Terpenning, 1990. \emph{STL: 
 
 \examples{
 data(releve)
-melo.regy <- regul(releve$Day, releve$Melosul, xmin=9, n=87, units="daystoyears", frequency=24, tol=2.2, methods="linear", datemin="21/03/1989", dateformat="d/m/Y")
+melo.regy <- regul(releve$Day, releve$Melosul, xmin=9, n=87,
+        units="daystoyears", frequency=24, tol=2.2, methods="linear",
+        datemin="21/03/1989", dateformat="d/m/Y")
 melo.ts <- tseries(melo.regy)
 melo.dec <- decloess(melo.ts, s.window="periodic")
 plot(melo.dec, col=1:3)

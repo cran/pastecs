@@ -20,9 +20,12 @@ print.turnogram(x, ...)
 summary.turnogram(object, ...)
 }
 \usage{
-turnogram(series, intervals=c(1, length(series)/5), step=1, complete=FALSE, two.tailed=TRUE, FUN=mean, plotit=TRUE, level=0.05, lhorz=TRUE, lvert=FALSE, xlog=TRUE)
+turnogram(series, intervals=c(1, length(series)/5), step=1, complete=FALSE,
+        two.tailed=TRUE, FUN=mean, plotit=TRUE, level=0.05, lhorz=TRUE,
+        lvert=FALSE, xlog=TRUE)
 \method{summary}{turnogram}(turno)
-\method{plot}{turnogram}(turno, level=0.05, lhorz=TRUE, lvert=TRUE, lcol=2, llty=2, xlog=TRUE, \dots)
+\method{plot}{turnogram}(turno, level=0.05, lhorz=TRUE, lvert=TRUE, lcol=2,
+        llty=2, xlog=TRUE, \dots)
 \method{identify}{turnogram}(turno, lvert=TRUE, \dots)
 \method{extract}{turnogram}(turno, n, level=turno$level, FUN=turno$fun, drop=0)
 }
@@ -77,8 +80,8 @@ plot(bnr4, type="l", main="bnr4: raw data", xlab="Time")
 bnr4.turno <- turnogram(bnr4)
 summary(bnr4.turno)
 # A complete turnogram confirms that "level=3" is a good value: 
-turnogram(bnr4, complete=T)
-# Data with maximum info. are extracted (thus taking one every three observations)
+turnogram(bnr4, complete=TRUE)
+# Data with maximum info. are extracted (thus taking 1 every 3 observations)
 bnr4.interv3 <- extract(bnr4.turno)
 plot(bnr4, type="l", lty=2, xlab="Time")
 lines(bnr4.interv3, col=2)
@@ -90,9 +93,9 @@ bnr4.interv6 <- extract(bnr4.turno)
 plot(bnr4, type="l", lty=2, xlab="Time")
 lines(bnr4.interv3, col=2)
 lines(bnr4.interv6, col=3)
-legend(70, 580, c("original", "interval=3", "interval=6"), col=1:3, lty=c(2,1,1))
+legend(70, 580, c("original", "interval=3", "interval=6"), col=1:3, lty=c(2, 1, 1))
 # It is hard to tell on the graph which series contains more information
-# The turnogram tells us that it is the "interval=3" one!
+# The turnogram shows us that it is the "interval=3" one!
 }
 \keyword{ ts }
 \keyword{ htest }

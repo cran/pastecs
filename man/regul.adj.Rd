@@ -8,7 +8,8 @@
 regul.adj(x, xmin=min(x), frequency=NULL, deltat=(max(x, na.rm = T) - min(x, na.rm = T))/(length(x) - 1), tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), xlab=paste("Time distance"), ylab=paste("Frequency"), main="Number of matching observations", plotit=TRUE, ...)
 }
 \usage{
-regul.adj(x, xmin=min(x), frequency=NULL, deltat, tol=deltat, tol.type="both", nclass=50, col=c(4, 5, 2), plotit=TRUE, \dots)
+regul.adj(x, xmin=min(x), frequency=NULL, deltat, tol=deltat,
+        tol.type="both", nclass=50, col=c(4, 5, 2), plotit=TRUE, \dots)
 }
 \arguments{
   \item{x}{ a vector with times corresponding to the observations in the irregular initial time series }

@@ -28,6 +28,6 @@ If you prefer to get separate statistics for various time intervals in your time
 
 \examples{
 data(marbio)
-stat.pen(marbio[,c(4,14:16)], basic=TRUE, desc=TRUE)
+stat.pen(marbio[,c(4, 14:16)], basic=TRUE, desc=TRUE)
 }
 \keyword{ ts }

@@ -40,6 +40,6 @@ cuts <- c(-1e-10, 1e-10, quantile(Z2, 1:5/5, na.rm=TRUE))
 cuts
 table(cut(Z, breaks=cuts))
 # Binary coding of these data
-disjoin(cut(Z, breaks=cuts))[1:10,]
+disjoin(cut(Z, breaks=cuts))[1:10, ]
 }
 \keyword{ manip }

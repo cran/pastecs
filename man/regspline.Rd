@@ -5,7 +5,8 @@
   Transform an irregular time series in a regular time series, or fill gaps in regular time series using splines
 }
 \usage{
-regspline(x, y=NULL, xmin=min(x), n=length(x), deltat=(max(x) - min(x))/(n - 1), rule=1, periodic=F)
+regspline(x, y=NULL, xmin=min(x), n=length(x),
+        deltat=(max(x) - min(x))/(n - 1), rule=1, periodic=F)
 }
 \arguments{
   \item{x}{ a vector with time in the irregular series. Missing values are allowed }

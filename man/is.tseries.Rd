@@ -19,8 +19,8 @@ is.tseries(x)
 
 \examples{
 tser <- ts(sin((1:100)/6*pi)+rnorm(100, sd=0.5), start=c(1998, 4), frequency=12)
-is.tseries(tser) # TRUE
+is.tseries(tser)      # TRUE
 not.a.ts <- c(1,2,3)
-is.tseries(not.a.ts) # FALSE
+is.tseries(not.a.ts)  # FALSE
 }
 \keyword{ ts }

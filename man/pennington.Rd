@@ -35,7 +35,7 @@ For multiple series, or for getting more statistics on the series, use \code{sta
 
 \examples{
 data(marbio)
-pennington(marbio[,"Copepodits2"])
-pennington(marbio[,"Copepodits2"], calc="mean", na.rm=TRUE)
+pennington(marbio[, "Copepodits2"])
+pennington(marbio[, "Copepodits2"], calc="mean", na.rm=TRUE)
 }
 \keyword{ univar }

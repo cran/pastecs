@@ -15,8 +15,11 @@ plot.stat.slide(x, stat="mean", col=c(1, 2), lty=c(par("lty"), par("lty")), leg=
 print.stat.slide(x, ...)
 }
 \usage{
-stat.slide(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL, deltat=1/frequency, basic=FALSE, desc=FALSE, norm=FALSE, pen=FALSE, p=0.95)
-plot.stat.slide(statsl, stat="mean", col=c(1, 2), lty=c(par("lty"), par("lty")), leg=FALSE, llab=c("series", stat), lpos=c(1.5, 10), \dots)
+stat.slide(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL,
+        deltat=1/frequency, basic=FALSE, desc=FALSE, norm=FALSE,
+        pen=FALSE, p=0.95)
+plot.stat.slide(statsl, stat="mean", col=c(1, 2), lty=c(par("lty"), par("lty")),
+        leg=FALSE, llab=c("series", stat), lpos=c(1.5, 10), \dots)
 lines.stat.slide(statsl, stat="mean", col=3, lty=1, \dots)
 }
 \arguments{
@@ -54,22 +57,27 @@ lines.stat.slide(statsl, stat="mean", col=3, lty=1, \dots)
 \examples{
 data(marbio)
 # Sliding statistics with fixed-length blocs
-statsl <- stat.slide(1:68, marbio[,"ClausocalanusA"], xmin=0, n=7, deltat=10)
+statsl <- stat.slide(1:68, marbio[, "ClausocalanusA"], xmin=0, n=7, deltat=10)
 statsl
-plot(statsl, stat="mean", leg=TRUE, lpos=c(55,2500), xlab="Station", ylab="ClausocalanusA")
+plot(statsl, stat="mean", leg=TRUE, lpos=c(55, 2500), xlab="Station",
+        ylab="ClausocalanusA")
 
 # More information on the series, with predefined blocs
-statsl2 <- stat.slide(1:68, marbio[,"ClausocalanusA"], xcut=c(0,17,25,30,41,46,70), basic=TRUE, desc=TRUE, norm=TRUE, pen=TRUE, p=0.95)
+statsl2 <- stat.slide(1:68, marbio[, "ClausocalanusA"],
+        xcut=c(0, 17, 25, 30, 41, 46, 70), basic=TRUE, desc=TRUE, norm=TRUE,
+        pen=TRUE, p=0.95)
 statsl2
-plot(statsl2, stat="median", xlab="Stations", ylab="Counts", main="Clausocalanus A") # Median
-lines(statsl2, stat="min") # Minimum
-lines(statsl2, stat="max") # Maximum
-lines(c(17,17), c(-50,2600), col=4, lty=2) # Cuts
-lines(c(25,25), c(-50,2600), col=4, lty=2)
-lines(c(30,30), c(-50,2600), col=4, lty=2)
-lines(c(41,41), c(-50,2600), col=4, lty=2)
-lines(c(46,46), c(-50,2600), col=4, lty=2)
-text(c(8.5,21,27.5,35,43.5,57), 2300, labels=c("Peripheral Zone", "D1", "C", "Front", "D2", "Central Zone")) # Labels
+plot(statsl2, stat="median", xlab="Stations", ylab="Counts",
+        main="Clausocalanus A")              # Median
+lines(statsl2, stat="min")                   # Minimum
+lines(statsl2, stat="max")                   # Maximum
+lines(c(17, 17), c(-50, 2600), col=4, lty=2) # Cuts
+lines(c(25, 25), c(-50, 2600), col=4, lty=2)
+lines(c(30, 30), c(-50, 2600), col=4, lty=2)
+lines(c(41, 41), c(-50, 2600), col=4, lty=2)
+lines(c(46, 46), c(-50, 2600), col=4, lty=2)
+text(c(8.5, 21, 27.5, 35, 43.5, 57), 2300, labels=c("Peripheral Zone", "D1",
+        "C", "Front", "D2", "Central Zone")) # Labels
 legend(0, 1900, c("series", "median", "range"), col=1:3, lty=1)
 # Get cuts back from the object
 statsl2$xcut

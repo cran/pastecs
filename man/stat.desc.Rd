@@ -24,6 +24,6 @@ stat.desc(x, basic=TRUE, desc=TRUE, norm=FALSE, p=0.95)
 
 \examples{
 data(marbio)
-stat.desc(marbio[,13:16], basic=T, desc=T, norm=T, p=0.95)
+stat.desc(marbio[,13:16], basic=TRUE, desc=TRUE, norm=TRUE, p=0.95)
 }
 \keyword{ ts }

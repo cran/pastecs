@@ -27,9 +27,10 @@ In both cases (normal test with \code{R=1} and bootstrap test), the p-value can 
 
 \examples{
 data(marbio)
-trend.test(marbio[,8])
+trend.test(marbio[, 8])
 # Run a bootstrap test on the same series
-marbio8.trend.test <- trend.test(marbio[,8], R=99) # R=999 is a better value... but it is very slow!
+marbio8.trend.test <- trend.test(marbio[, 8], R=99)
+# R=999 is a better value... but it is very slow!
 marbio8.trend.test  
 plot(marbio8.trend.test)
 marbio8.trend.test$p.value

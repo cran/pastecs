@@ -23,7 +23,8 @@ summary.turnpoints(object, ...)
 turnpoints(x)
 \method{summary}{turnpoints}(turnp)
 \method{plot}{turnpoints}(turnp, level=0.05, lhorz=TRUE, lcol=2, llty=2, \dots)
-\method{lines}{turnpoints}(turnp, max=TRUE, min=TRUE, median=TRUE, col=c(4, 4, 2), lty=c(2, 2, 1), \dots)
+\method{lines}{turnpoints}(turnp, max=TRUE, min=TRUE, median=TRUE,
+        col=c(4, 4, 2), lty=c(2, 2, 1), \dots)
 \method{extract}{turnpoints}(turnp, n, no.tp=0, peak=1, pit=-1)
 }
 \arguments{
@@ -68,7 +69,8 @@ summary(Nauplii.tp)
 plot(Nauplii.tp)
 # Add envelope and median line to original data
 plot(marbio[, "Nauplii"], type="l")
-lines(Nauplii.tp)   # Note tha lines() apply to the graph of original dataset!!!
+lines(Nauplii.tp)
+# Note that lines() applies to the graph of original dataset!!!
 title("Raw data, envelope maxi., mini. and median line")
 }
 \keyword{ ts }

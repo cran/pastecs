@@ -24,7 +24,9 @@ summary.abund(object, ...)
 \usage{
 abund(x, f=0.2)
 \method{summary}{abund}(abd)
-\method{plot}{abund}(abd, n=abd$n, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, all=TRUE, dlab=c("cumsum", "\% log(ind.)", "\% non-zero"), dcol=c(1, 2, 4), dlty, dpos=c(1.5, 20), \dots)
+\method{plot}{abund}(abd, n=abd$n, lvert=TRUE, lvars=TRUE, lcol=2, llty=2,
+        all=TRUE, dlab=c("cumsum", "\% log(ind.)", "\% non-zero"),
+        dcol=c(1, 2, 4), dlty, dpos=c(1.5, 20), \dots)
 \method{lines}{abund}(abd, n=abd$n, lvert=TRUE, lvars=TRUE, \dots)
 \method{identify}{abund}(abd, label.pts=FALSE, lvert=TRUE, lvars=TRUE, \dots)
 \method{extract}{abund}(abd, n=abd$n, left=TRUE)
@@ -64,9 +66,9 @@ Ibanez, F., J.-C. Dauvin & M. Etienne, 1993. \emph{Comparaison des évolutions à 
 data(bnr)
 bnr.abd <- abund(bnr)
 summary(bnr.abd)
-plot(bnr.abd, dpos=c(105,100))
+plot(bnr.abd, dpos=c(105, 100))
 bnr.abd$n <- 26
-# To interactively identify a point on the graph, use: bnr.abd$n <- identify(bnr.abd)
+# To identify a point on the graph, use: bnr.abd$n <- identify(bnr.abd)
 lines(bnr.abd)
 bnr2 <- extract(bnr.abd)
 names(bnr2)

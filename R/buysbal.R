@@ -1,5 +1,5 @@
 "buysbal" <-
-function(x, y=NULL, frequency=12, units="years", datemin=NULL, dateformat="m/d/y", count=FALSE) {
+function(x, y=NULL, frequency=12, units="years", datemin=NULL, dateformat="m/d/Y", count=FALSE) {
 	# Check the frequency argument
 	if (!is.numeric(frequency))
 		stop("frequency must be a numeric value")

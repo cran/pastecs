@@ -35,7 +35,7 @@ Philips, L. & R. Blomme, 1973. \emph{Analyse chronologique.} Université Catholiq
 data(marbio)
 ClausoB.ts <- ts(log(marbio$ClausocalanusB + 1))
 ClausoB.dec <- decdiff(ClausoB.ts, lag=1, order=2, ends="fill")
-plot(ClausoB.dec, col=c(1,4,2), xlab="stations")
+plot(ClausoB.dec, col=c(1, 4, 2), xlab="stations")
 }
 \keyword{ ts }
 \keyword{ smooth }

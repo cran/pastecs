@@ -5,7 +5,8 @@
   Decompose a single regular time series with a moving average filtering. Return a 'tsd' object. To decompose several time series at once, use \code{tsd()} with the argument \code{method="average"}
 }
 \usage{
-decaverage(x, type="additive", order=1, times=1, sides=2, ends="fill", weights=NULL)
+decaverage(x, type="additive", order=1, times=1, sides=2, ends="fill",
+        weights=NULL)
 }
 \arguments{
   \item{x}{ a regular time series ('rts' under S+ and 'ts' under R) }
@@ -39,9 +40,10 @@ Philips, L. & R. Blomme, 1973. \emph{Analyse chronologique.} Université Catholiq
 data(marbio)
 ClausoB.ts <- ts(log(marbio$ClausocalanusB + 1))
 ClausoB.dec <- decaverage(ClausoB.ts, order=2, times=10, sides=2, ends="fill")
-plot(ClausoB.dec, col=c(1,3,2), xlab="stations")
+plot(ClausoB.dec, col=c(1, 3, 2), xlab="stations")
 # A stacked graph is more representative in this case
-plot(ClausoB.dec, col=c(1,3), xlab="stations", stack=F, resid=F, lpos=c(53,4.3))
+plot(ClausoB.dec, col=c(1, 3), xlab="stations", stack=FALSE, resid=FALSE,
+        lpos=c(53, 4.3))
 }
 \keyword{ ts }
 \keyword{ smooth }

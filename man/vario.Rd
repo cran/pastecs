@@ -29,6 +29,6 @@ Matheron, G., 1971. \emph{La théorie des variables régionalisées et ses applicat
 
 \examples{
 data(bnr)
-vario(bnr[,4])
+vario(bnr[, 4])
 }
 \keyword{ ts }

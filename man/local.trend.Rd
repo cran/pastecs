@@ -47,6 +47,6 @@ data(bnr)
 bnr8.lt <- local.trend(bnr[,8])
 # To identify local trends, use:
 # identify(bnr8.lt)
-# and click points between which you want to compute local linear trends
+# and click points between which you want to compute local linear trends...
 }
 \keyword{ ts }

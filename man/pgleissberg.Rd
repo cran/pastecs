@@ -27,7 +27,7 @@ Johnson, N.L. & Kotz, S., 1969. \emph{Discrete distributions.} J. Wiley & sons, 
 \seealso{ \code{\link{.gleissberg.table}}, \code{\link{turnpoints}}, \code{\link{turnogram}}}
 
 \examples{
-# Until n = 50, the exact probability is returned
+# Until n=50, the exact probability is returned
 pgleissberg(20, 10, lower.tail=TRUE, two.tailed=FALSE)
 # For higher n values, it is approximated by a normal distribution
 pgleissberg(60, 33, lower.tail=TRUE, two.tailed=FALSE)
