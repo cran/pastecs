@@ -7,9 +7,10 @@ bnr                       A data frame of several benthic species measured acros
 buysbal                   Buys-Ballot table
 daystoyears               Convert units from "days" to "years"
 decaverage                Decompose a time series using a moving average
+deccensus                 Decompose a time series with the CENSUS II method (season/trend/resid)
 decdiff                   Decompose a time series using differences (trend elimination)
 decevf                    Decompose a time series using eigenvector filtering
-decloess                  Decompose a time series using the loess method (deseasonize)
+decloess                  Decompose a time series using the loess method (season/trend/resid)
 decmedian                 Decompose a time series using median filtering
 decreg                    Decompose a time series using a regression model
 disjoin                   Complete disjoined coded data (classes with binary code)

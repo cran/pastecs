@@ -105,7 +105,7 @@ function (x, specs=NULL, method="loess", type=if(method == "census") "multiplica
 				"median"=decmedian(x, type=type, order=order, times=times, ends=ends),
 				"evf"=decevf(x, type=type, lag=lag, axes=axes),
 				"reg"=decreg(x, xreg=xreg, type=type),
-				"census"=stop("Not implemented yet!"), #deccensus(x, type=type, trend=trend),
+				"census"=deccensus(x, type=type, trend=trend),
 				"loess"=decloess(x, type=type, s.window=s.window, s.degree=s.degree, t.window=t.window, t.degree=t.degree, robust=robust, trend=trend))
 		# res is already a 'tsd' object, we just have to change specs to make sure all args are included
 		res$specs <- specs
@@ -131,7 +131,7 @@ function (x, specs=NULL, method="loess", type=if(method == "census") "multiplica
 				"median"=decmedian(x[,i], type=type, order=order, times=times, ends=ends),
 				"evf"=decevf(x[,i], type=type, lag=lag, axes=axes),
 				"reg"=decreg(x[,i], xreg[,i], type=type),
-				"census"=stop("Not implemented yet!"),	 #deccensus(x[,i], type=type, trend=trend),
+				"census"=deccensus(x[,i], type=type, trend=trend),
 				"loess"=decloess(x[,i], type=type, s.window=s.window, s.degree=s.degree, t.window=t.window, t.degree=t.degree, robust=robust, trend=trend))
 			# Add the series in res
 			res$series[[i]] <- res1$series

@@ -28,7 +28,7 @@ Sokal, R.R. & F.J. Rohlf, 1981. \emph{Biometry.} Freeman & Co, San Francisco. 86
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{decdiff}}, \code{\link{decevf}}, \code{\link{decmedian}}, \code{\link{decloess}} }
+\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{deccensus}}, \code{\link{decdiff}}, \code{\link{decevf}}, \code{\link{decmedian}}, \code{\link{decloess}} }
 
 \examples{
 data(marphy)

@@ -10,7 +10,7 @@ decloess(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL,
 }
 \arguments{
   \item{x}{ a regular time series ('rts' under S+ and 'ts' under R) }
-  \item{type}{ the type of model. This is for compatibility purpose. The only model type that is accepted for this method is \code{type="additive"}. }
+  \item{type}{ the type of model. This is for compatibility purpose. The only model type that is accepted for this method is \code{type="additive"}. For a multiplicative model, use \code{deccensus()} instead }
   \item{s.window}{ the width of the window used to extract the seasonal component. Use an odd value equal or just larger than the number of annual values (frequency of the time series). Use another value to extract other cycles (circadian, lunar,...). Using \code{s.window="periodic"} ensures a correct value for extracting a seasonal component when the time scale is in years units }
   \item{s.degree}{ the order of the polynome to use to extract the seasonal component (0 or 1). By default \code{s.degree=0} }
   \item{t.window}{ the width of the window to use to extract the general trend when \code{trend=TRUE} (indicate an odd value). If this parameter is not provided, a reasonable value is first calculated, and then used by the algorithm. }
@@ -31,7 +31,7 @@ Cleveland, R.B.,  W.S. Cleveland, J.E. McRae, & I. Terpenning, 1990. \emph{STL: 
 }
 \author{ Philippe Grosjean (\email{phgrosjean@sciviews.org}), Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}) }
 
-\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{decmedian}}, \code{\link{decdiff}}, \code{\link{decevf}}, \code{\link{decreg}} }
+\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{deccensus}}, \code{\link{decmedian}}, \code{\link{decdiff}}, \code{\link{decevf}}, \code{\link{decreg}} }
 
 \examples{
 data(releve)

@@ -29,7 +29,7 @@ Ibanez, F., J.C. Dauvin & M. Etienne, 1993. \emph{Comparaison des évolutions à l
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{decmedian}},  \code{\link{decdiff}}, \code{\link{decreg}}, \code{\link{decloess}} }
+\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{deccensus}}, \code{\link{decmedian}},  \code{\link{decdiff}}, \code{\link{decreg}}, \code{\link{decloess}} }
 
 \examples{
 data(releve)

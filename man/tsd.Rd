@@ -32,7 +32,7 @@ tsd(x, specs=NULL, method="loess", type="additive", \dots)
 \arguments{
   \item{x}{ an univariate or multivariate regular time series ('rts' in Splus or 'ts' in \R) to be decomposed }
   \item{specs}{ specifications are collected from a 'tsd' object, using the \code{specs} method. This allows for reusing parameters issued from a previous similar analysis }
-  \item{method}{ the method to use to decompose the time series. Currently, possible values are: \code{"diff"}, \code{"average"}, \code{"median"}, \code{"evf"}, \code{"reg"} or \code{"loess"} (by default). The corresponding function \code{decXXXX()} is applied to each of the series in \code{x} }
+  \item{method}{ the method to use to decompose the time series. Currently, possible values are: \code{"diff"}, \code{"average"}, \code{"median"}, \code{"evf"}, \code{"reg"}, \code{"loess"} (by default) or \code{"census"}. The corresponding function \code{decXXXX()} is applied to each of the series in \code{x} }
   \item{type}{ the type of model to use: either \code{"additive"} (by default) or \code{"multiplicative"}. In the additive model, all components must be added to reconstruct the initial series. In the multiplicative model, they must be multiplied (one components has the same unit as the original series, and the other ones are dimensionless multiplicative factors) }
   \item{\dots}{ (1) for \code{tsd()}: further arguments to pass to the corresponding \code{decXXXX()} function. (2) for \code{plot()}: further graphical arguments }
   \item{tsdobj}{ a 'tsd' object as returned by the function \code{tsd()}, or any of the \code{decXXXX()} functions }
@@ -46,7 +46,7 @@ tsd(x, specs=NULL, method="loess", type="additive", \dots)
   \item{components}{ the names or indices of the components to extract. If \code{components=NULL} (by default), then all components of the selected series are extracted. It is also possible to specify negative indices. In this case, all components are extracted, except those ones }
 }
 \details{
-  To eliminate trend from a series, use "diff" or use "loess" with \code{trend=TRUE}. If you know the shape of the trend (linear, exponential, periodic, etc.), you can also use it with the "reg" (regression) method. To eliminate or extract seasonal components, you can use "loess". You can also use "average" with argument \code{order="periodic"} and with either an additive or a multiplicative model, although the later method is often less powerful than "loess". If you want to extract a seasonal cycle with a given shape (for instance, a sinusoid), use the "reg" method with a fitted sinusoidal equation. If you want to identify levels in the series, use the "median" method. To smooth the series, you can use preferably the "evf" (eigenvector filtering), or the "average" methods, but you can also use "median". To extract most important components from the series (no matter if they are cycles -seasonal or not-, or long-term trends), you should use the "evf" method. For more information on each of these methods, see online help of the corresponding \code{decXXXX()} functions.
+  To eliminate trend from a series, use "diff" or use "loess" with \code{trend=TRUE}. If you know the shape of the trend (linear, exponential, periodic, etc.), you can also use it with the "reg" (regression) method. To eliminate or extract seasonal components, you can use "loess" if the seasonal component is additive, or "census" if it is multiplicative. You can also use "average" with argument \code{order="periodic"} and with either an additive or a multiplicative model, although the later method is often less powerful than "loess" or "census". If you want to extract a seasonal cycle with a given shape (for instance, a sinusoid), use the "reg" method with a fitted sinusoidal equation. If you want to identify levels in the series, use the "median" method. To smooth the series, you can use preferably the "evf" (eigenvector filtering), or the "average" methods, but you can also use "median". To extract most important components from the series (no matter if they are cycles -seasonal or not-, or long-term trends), you should use the "evf" method. For more information on each of these methods, see online help of the corresponding \code{decXXXX()} functions.
 }
 \value{
   An object of type 'tsd' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{extract()} and \code{specs()}.
@@ -65,7 +65,7 @@ Philips, L. & R. Blomme, 1973. \emph{Analyse chronologique.} Université Catholiq
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 \note{ If you have to decompose a single time series, you could also use the corresponding \code{decXXXX()} function directly. In the case of a multivariate regular time series, \code{tsd()} is more convenient because it decompose all times series of a set at once! }
 
-\seealso{ \code{\link{tseries}}, \code{\link{decdiff}}, \code{\link{decaverage}}, \code{\link{decmedian}}, \code{\link{decevf}}, \code{\link{decreg}}, \code{\link{decloess}} }
+\seealso{ \code{\link{tseries}}, \code{\link{decdiff}}, \code{\link{decaverage}}, \code{\link{decmedian}}, \code{\link{decevf}}, \code{\link{decreg}}, \code{\link{decloess}}, \code{\link{deccensus}} }
 
 \examples{
 data(releve)

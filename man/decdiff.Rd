@@ -29,7 +29,7 @@ Philips, L. & R. Blomme, 1973. \emph{Analyse chronologique.} Université Catholiq
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{decmedian}},  \code{\link{decevf}}, \code{\link{decreg}}, \code{\link{decloess}} }
+\seealso{ \code{\link{tsd}}, \code{\link{tseries}}, \code{\link{decaverage}}, \code{\link{deccensus}}, \code{\link{decmedian}},  \code{\link{decevf}}, \code{\link{decreg}}, \code{\link{decloess}} }
 
 \examples{
 data(marbio)
