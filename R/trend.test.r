@@ -3,7 +3,7 @@ function(tseries, R=1) {
 	Call <- deparse(substitute(tseries))
 	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
 		# Now done with Depends: field require(stats)
-		x <- as.ts(as.matrix(tseries))
+		x <- as.ts(tseries)
 		Names <- colnames(x)
 	} else {												# We are in S+
 		x <- as.rts(tseries)
