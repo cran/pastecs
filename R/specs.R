@@ -1,3 +1,3 @@
 "specs" <-
 function(x, ...)
-	UseMethod("specs", x, ...)
+	UseMethod("specs")
