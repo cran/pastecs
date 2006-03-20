@@ -1,6 +1,6 @@
 "extract.turnpoints" <-
 function(e, n, no.tp=0, peak=1, pit=-1, ...) {
-	if (missing(n)) n <- length(e)
+	if (missing(n)) n <- -1
 	res <- rep(no.tp, length.out=e$n)
 	res[e$pos[e$peaks]] <- peak
 	res[e$pos[e$pits]] <- pit

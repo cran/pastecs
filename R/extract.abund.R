@@ -1,6 +1,6 @@
 "extract.abund" <-
 function(e, n, left=TRUE, ...) {
-	if (missing(n)) n <- e$n
+	if (missing(n)) n <- Inf
 	if (is.null(n))
 		stop("You must provide a value n for extraction!")
 	p <- length(e$p.log.ind)
