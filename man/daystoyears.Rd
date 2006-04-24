@@ -44,7 +44,8 @@ B
 yearstodays(B, xmin=30)
 
 # Here is an example showing the shift introduced, and its consequence:
-C <- daystoyears(unclass(as.Date(c("1970-1-1","1971-1-1","1972-1-1","1973-1-1"))))
+C <- daystoyears(unclass(as.Date(c("1970-1-1","1971-1-1","1972-1-1","1973-1-1"),
+	format = "\%Y-\%m-\%d")))
 C
 }
 \keyword{ ts }
