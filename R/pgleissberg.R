@@ -54,33 +54,19 @@ function(n, k, lower.tail=TRUE, two.tailed=FALSE) {
 				Gleiss <- Gleiss / gamma(4:51)		# gamma(n + 1) is equivalent to n!
 				# This is the probability, giving any (n, k) pair... but we want a table of right-tailed cumulated probabilities
 				Gleiss <- t(apply(t(Gleiss), 2, cumsum))
-				if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-					assign(".gleissberg.table", Gleiss, env = .GlobalEnv)	
-				} else {												# We are in S+
-					assign(".gleissberg.table", Gleiss, where = 0)
-				}
+				assign(".gleissberg.table", Gleiss, env = .GlobalEnv)	
 				invisible(NULL)
 			}
-			
+
 			# Determination of Gleissberg probability
 			ng <- ncalc[!Norm]
 			kg <- kcalc[!Norm]
-			if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-				if (length(objects(envir=.GlobalEnv, all.names=TRUE, pattern=".gleissberg.table")) == 0) {	# Table not found
-					try(data(gleissberg.table))
-					if (length(objects(envir=.GlobalEnv, all.names=TRUE, pattern=".gleissberg.table")) == 0) {	# Table still not found
-						cat("Creating Gleissberg distribution table...\n\n")
-						if (R.Version()$os == "Win32") {flush.console()}
-						gleissberg.calc()
-					}
-				}
-			} else {												# We are in S+
-				if (exists(".gleissberg.table") == FALSE) {	# Table not found
-					try(data(gleissberg.table))
-					if (exists(".gleissberg.table") == FALSE) {	# Table still not found
-						cat("Creating Gleissberg distribution table...\n\n")
-						gleissberg.calc()
-					}
+			if (length(objects(envir=.GlobalEnv, all.names=TRUE, pattern=".gleissberg.table")) == 0) {	# Table not found
+				try(data(gleissberg.table))
+				if (length(objects(envir=.GlobalEnv, all.names=TRUE, pattern=".gleissberg.table")) == 0) {	# Table still not found
+					cat("Creating Gleissberg distribution table...\n\n")
+					if (R.Version()$os == "Win32") {flush.console()}
+					gleissberg.calc()
 				}
 			}
 			.gleissberg.table <- as.matrix(.gleissberg.table)

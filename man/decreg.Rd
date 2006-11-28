@@ -1,5 +1,8 @@
 \name{decreg}
 \alias{decreg}
+
+\encoding{latin1}
+
 \title{ Time series decomposition using a regression model }
 \description{
   Providing values coming from a regression on the original series, a \code{tsd} object is created using the original series, the regression model and the residuals
@@ -15,7 +18,7 @@ decreg(x, xreg, type="additive")
 \value{
   a 'tsd' object
 }
-\references{ 
+\references{
 Frontier, S., 1981. \emph{Méthodes statistiques.} Masson, Paris. 246 pp.
 
 Kendall, M., 1976. \emph{Time-series.} Charles Griffin & Co Ltd. 197 pp.

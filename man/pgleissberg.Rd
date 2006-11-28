@@ -1,5 +1,8 @@
 \name{pgleissberg}
 \alias{pgleissberg}
+
+\encoding{latin1}
+
 \title{ Gleissberg distribution probability }
 \description{
   The Gleissberg distribution gives the probability to have k extrema in a series of n observations. This distribution is used in the turnogram to determine if monotony indices are significant (see \code{turnogram()})
@@ -16,7 +19,7 @@ pgleissberg(n, k, lower.tail=TRUE, two.tailed=FALSE)
 \value{
   a value giving the probability to have \code{k} extrema in a series of \code{n} observations
 }
-\references{ 
+\references{
 Dallot, S. & M. Etienne, 1990. \emph{Une méthode non paramétrique d'analyse des séries en océanographie biologique: les tournogrammes.} Biométrie et océanographie - Société de biométrie, 6, Lille, 26-28 mai 1986. IFREMER, Actes de colloques, 10:13-31.
 
 Johnson, N.L. & Kotz, S., 1969. \emph{Discrete distributions.} J. Wiley & sons, New York, 328 pp.

@@ -1,5 +1,8 @@
 \name{regarea}
 \alias{regarea}
+
+\encoding{latin1}
+
 \title{ Regulate a series using the area method }
 \description{
   Transform an irregular time series in a regular time series, or fill gaps in regular time series using the area method
@@ -21,12 +24,12 @@ regarea(x, y=NULL, xmin=min(x), n=length(x),
   \item{split}{ a parameter to optimise calculation time and to avoid saturation of the memory. Very long time series are splitted into smaller subunits. This is transparent for the user. The default value of \code{split=100} should be rarely changed. Give a lower value if the program fails and reports a memory problem during calculation }
 }
 \details{
-  This is a linear interpolation method described by Fox (1972). It takes into account all observations located in a given time window around the missing observation. On the contrary to many other interpolations (constant, linear, spline), the interpolated curve does not pass by the initial observations. Indeed, a smoothing is also operated simultaneously by this method. The importance of the smoothing is dependent on the size of the window (the largest it is, the smoothest will be the calculated regular time series) 
+  This is a linear interpolation method described by Fox (1972). It takes into account all observations located in a given time window around the missing observation. On the contrary to many other interpolations (constant, linear, spline), the interpolated curve does not pass by the initial observations. Indeed, a smoothing is also operated simultaneously by this method. The importance of the smoothing is dependent on the size of the window (the largest it is, the smoothest will be the calculated regular time series)
 }
 \value{
   An object of type 'regul' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{hist()}, \code{extract()} and \code{specs()}.
 }
-\references{ 
+\references{
 Fox, W.T. & J.A. Brown, 1965. \emph{The use of time-trend analysis for environmental interpretation of limestones.} J. Geol., 73:510-518.
 
 Ibanez, F., 1991. \emph{Treatment of the data deriving from the COST 647 project on coastal benthic ecology: The within-site  analysis.} In: B. Keegan (ed). Space and Time Series Data Analysis in Coastal Benthic Ecology. Pp 5-43.

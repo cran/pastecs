@@ -60,16 +60,11 @@ function(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL, deltat=1/frequenc
 				# +/- sqrt(24/Nbrval) for Nbrval > 150, same ref.
 				Kurt.2SE <- Kurt/(2*SE)
 				# Same remark as for Skew.2SE!
-				if (exists("is.R") && is.function(is.R) && is.R()) {
-					# This is the Shapiro-Wilk test of normality
-					# Now done with Depends: field require(stats)		# For Shapiro-Wilk normality tests in R
-					Ntest <- shapiro.test(y)
-					Ntest.W <- Ntest$statistic; names(Ntest.W) <- NULL
-					Ntest.p <- Ntest$p.value
-				} else {	# We are in Splus
-					# No normality test currently available!
-					Ntest.W <- NA; Ntest.p <- NA
-				}
+				# This is the Shapiro-Wilk test of normality
+				# Now done with Depends: field require(stats)		# For Shapiro-Wilk normality tests in R
+				Ntest <- shapiro.test(y)
+				Ntest.W <- Ntest$statistic; names(Ntest.W) <- NULL
+				Ntest.p <- Ntest$p.value
 				Res3 <- list(skewness=Skew, skew.2SE=Skew.2SE, kurtosis=Kurt, kurt.2SE=Kurt.2SE, normtest.W=Ntest.W, normtest.p=Ntest.p)
 			} else Res3 <- NULL
 			if (pen==TRUE) {
@@ -92,40 +87,35 @@ function(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL, deltat=1/frequenc
 		if (length(Res)==2) Res <- unlist(list(xmin=xmin, xmax=xmax, nbr.val=Nbrval, nbr.null=Nbrnull, nbr.na=Nbrna, min=min(y), max=max(y), median=Median, mean=Mean, std.dev=StdDev))
 		Res
 	}
-	
+
 	# This is the body of stat.slide
 	call <- match.call()
 	Basic <- basic; Desc <- desc; Norm <- norm; Pen <- pen; P <- p
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		x <- xy.coords(x, y)
-		y <- x$y
-		x <- x$x
-	} else {												# We are in S+
-		x <- x
-		y <- y
-	}
+	x <- xy.coords(x, y)
+	y <- x$y
+	x <- x$x
 	# Make sure data are sorted in increasing order according to x
 	srt <- sort.list(x)
 	x <- x[srt]
 	y <- y[srt]
 	# Check arguments
-	if (!is.numeric(x) || !is.numeric(y)) 
+	if (!is.numeric(x) || !is.numeric(y))
 		stop("stat.slide: x and y must be numeric")
 	nx <- length(x)
-	if (nx != length(y)) 
+	if (nx != length(y))
 	    stop("x and y must have equal lengths")
-	if (nx < 3) 
+	if (nx < 3)
 	    stop("stat.slide requires at least three values for x and y")
 	# Eliminate entries with missing values
 	ok <- !(is.na(x) | is.na(y))
 	x <- x[ok]
 	y <- y[ok]
 	nx <- length(x)
-	if (nx < 3) 
+	if (nx < 3)
 	    stop("stat.slide requires at least three non-missing values for x and y")
 	# The different sequences are provided in xcut, or are calculated from xmin, frequency/deltat and n
 	if (is.null(xcut)) {									# calculate regular sequences
-		if (is.null(deltat) | deltat <= 0) 
+		if (is.null(deltat) | deltat <= 0)
 	    	stop("stat.slide requires deltat > 0")
 		# if n is not defined, then it is calculated
 		if (is.null(n)) {

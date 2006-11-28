@@ -10,7 +10,7 @@ function(e, n, series=NULL, components=NULL, ...) {
 		}
 		# We create a series value that correspond to the extraction of n first series
 		series <- 1:n
-	} else {					# If series is provided, we test it 
+	} else {					# If series is provided, we test it
 		if (is.character(series)) {
 			names <- e$ts
 			series <- pmatch(series, names, nomatch=0)
@@ -79,12 +79,7 @@ function(e, n, series=NULL, components=NULL, ...) {
 			stop("nothing to extract!")
 		dimnames(res)[[2]] <- cnames
 	}
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		res <- as.ts(res)
-		attr(res, "units") <- e$units
-	} else {												# We are in S+
-		res <- as.rts(res)
-		attr(attr(res, "tspar"), "units") <- e$units
-	}
+	res <- as.ts(res)
+	attr(res, "units") <- e$units
 	res
 }

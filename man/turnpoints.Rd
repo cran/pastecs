@@ -6,6 +6,9 @@
 \alias{print.summary.turnpoints}
 \alias{print.turnpoints}
 \alias{summary.turnpoints}
+
+\encoding{latin1}
+
 \title{ Analyze turning points (peaks or pits) }
 \description{
   Determine the number and the position of extrema (turning points, either peaks or pits) in a regular time series. Calculate the quantity of information associated to the observations in this series, according to Kendall's information theory
@@ -46,12 +49,51 @@ turnpoints(x)
   \item{pit}{ the code to use to flag a pit, by default '-1' }
 }
 \details{
-  This function tests if the time series is purely random or not. Kendall (1976) proposed a series of tests for this. Moreover, graphical methods using the position of the turning points to draw automatically envelopes around the data are implemented, and also the drawing of median points between these envelopes
+  This function tests if the time series is purely random or not. Kendall (1976) proposed a series of tests for this. Moreover, graphical methods using the position of the turning points to draw automatically envelopes around the data are implemented, and also the drawing of median points between these envelopes.
+
+  With a purely random time series, one expect to find, on average, a turning point (peak or pit that is, an observation that is preceeded and followed by, respectively, lower or higher observations) every 1.5 observation. Given it is impossible to determine if first and last observation are turning point, it gives:
+
+  \deqn{E(p) = 2/3*(n-2)}
+
+  with p, the number of observed turning points and n the number of observations. The variance of p is:
+
+  \deqn{var(p) = (16*n - 29)/90}
+
+  Ibanez (1982) demonstrated that P(t), the probability to observe a turning point at time t is:
+
+  \deqn{P(t) = 2*(1/n(t-1)! * (n-1)!)}
+
+  where P is the probability to observe a turning point at time t under the null hypothesis that the time series is purely random, and thus, the distribution of turning points follows a normal distribution.
+
+  The quantity of information I associated with this probability is:
+
+  \deqn{I = -log2 P(t)}
+
+  It can be interpreted as follows. If I is larger, there are less turning points than expected in a purely random series. There are, thus, longer sequence of increasing or decreasing values along the time scale. This is considered to be more informative.
+
+As you can easily imagine, from this point on, it is straightforward to construct a test to determine if the series is random (regarding the distribution of the turning points), more or less monotonic (more or less turning points than expected).
 }
+
 \value{
   An object of type 'turnpoints' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()} and \code{extract()}.
+Regarding your specific question, 'info' is the quantity of information I associated with the turning points:
+  \item{data}{ The dataset to which the calculation is done }
+  \item{n}{ The number of observations }
+  \item{points}{ The value of the points in the series, after elimination of ex-aequos }
+  \item{pos}{ The position of the points on the time scale in the series (including ex-aequos) }
+  \item{exaequos}{ Location of exaequos (1), or not (0) }
+  \item{nturns}{ Total number of tunring points in the whole time series }
+  \item{firstispeak}{ Is the first turning point a peak (\code{TRUE}), or not (\code{FALSE}) }
+  \item{peaks}{ Logical vector. Location of the peaks in the time series without ex-aequos }
+  \item{pits}{ Logical vector. Location of the pits in the time series without ex-aequos}
+  \item{tppos}{ Position of the turning points in the initial series (with ex-aequos) }
+  \item{proba}{ Probability to find a turning point at this location (see details) }
+  \item{info}{ Quantity of information associated with this point (see details) }
 }
-\references{ 
+
+\references{
+Ibanez, F., 1982. \emph{Sur une nouvelle application de la theorie de l'information à la description des series chronologiques planctoniques.} J. Exp. Mar. Biol. Ecol., 4:619-632
+
 Kendall, M.G., 1976. \emph{Time-series, 2nd ed.} Charles Griffin & Co, London.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }

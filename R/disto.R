@@ -3,8 +3,6 @@ function(x, max.dist=nrow(x)/4, plotit=TRUE, disto.data=NULL) {
 	if (is.null(disto.data)) {	# Calculate distogram
 		call <- match.call()
 		data <- deparse(substitute(x))
-		#if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
-			# Now done with Depends: field require(stats)
 		x <- as.matrix(x)
 		if (is.null(ncol(x)) || ncol(x) < 2)
 			stop("There must be at least two columns (series) in the dataset")
@@ -21,7 +19,7 @@ function(x, max.dist=nrow(x)/4, plotit=TRUE, disto.data=NULL) {
     	# Calculate mean values for each distance
     	res <- rep(0, max.dist)
     	for (i in 1:max.dist) {
-    		res[i] <- mean(val[val$distance == i,]$distogram, na.rm=TRUE)/2	
+    		res[i] <- mean(val[val$distance == i,]$distogram, na.rm=TRUE)/2
     	}
     	res <- list(distance=1:max.dist, distogram=res)
     	res <- as.data.frame(res)

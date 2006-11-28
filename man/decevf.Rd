@@ -1,5 +1,8 @@
 \name{decevf}
 \alias{decevf}
+
+\encoding{latin1}
+
 \title{ Time series decomposition using eigenvector filtering (EVF) }
 \description{
   The eigenvector filtering decomposes the signal by applying a principal component analysis (PCA) on the original signal and a certain number of copies of it incrementally lagged, collected in a multivariate matrix. Reconstructing the signal using only the most representative eigenvectors allows filtering it.
@@ -16,7 +19,7 @@ decevf(x, type="additive", lag=5, axes=1:2)
 \value{
   a 'tsd' object
 }
-\references{ 
+\references{
 Colebrook, J.M., 1978. \emph{Continuous plankton records: zooplankton and environment, North-East Atlantic and North Sea 1948-1975.} Oceanologica Acta, 1:9-23.
 
 Ibanez, F. & J.C. Dauvin, 1988. \emph{Long-term changes (1977-1987) on a muddy fine sand Abra alba - Melinna palmate population community from the Western English Channel.} J. Mar. Prog. Ser., 49:65-81.

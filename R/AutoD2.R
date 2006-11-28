@@ -2,15 +2,9 @@
 function(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE,...) {
     call <- match.call()
 	data <- deparse(substitute(series))
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		# Now done with Depends: field require(stats)
-		if (is.null(class(series)) || class(series)[1] != "mts")
-			stop("series must be a multiple regular time series object")
-		Unit <- attr(series, "units")
-	} else {
-		# Rem: cannot test if it is a time series
-		Unit <- attr(attr(series, "tspar"), "units")
-	}
+	if (is.null(class(series)) || class(series)[1] != "mts")
+		stop("series must be a multiple regular time series object")
+	Unit <- attr(series, "units")
 	UnitTxt <- GetUnitText(series)
 	# Test the length of the series, range and step...
 	n <- nrow(series)
@@ -19,12 +13,12 @@ function(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE,...) 
 	if (lags[1] < 1 || lags[1] > n/3)
 	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")
 	if (lags[2] < 1 || lags[2] > n/3)
-	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")	
+	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")
 	Lags.vec <- seq(lags[1], lags[2], step)
 	if (length(Lags.vec) < 2)
 	   	stop("Less than 2 lags. Redefine intervals or step")
 	D2.vec <- Lags.vec
-	    
+
 	# Calculate AutoD2 for each lag
 	x <- as.matrix(series)
 	for (i in 1:length(Lags.vec)) {
@@ -43,7 +37,7 @@ function(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE,...) 
 		S1 <- t(g1) %*% g1
 		S2 <- t(g2) %*% g2
 		S <- solve((S1 + S2)/(2*(n-k)-2))
-		D2.vec[i] <- (t(m) %*% S) %*% m 
+		D2.vec[i] <- (t(m) %*% S) %*% m
 	}
 	res <- list(lag=Lags.vec, D2=D2.vec)
 	as.data.frame(res)
@@ -52,7 +46,7 @@ function(series, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FALSE,...) 
 	res$type <- "AutoD2"
 	res$units.text <- UnitTxt
 	attr(res, "units") <- Unit
-		
+
 	# Do we need to plot the graph?
 	if (plotit == TRUE) {
 		if (add == TRUE) {

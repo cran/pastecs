@@ -4,6 +4,8 @@
 \alias{plot.stat.slide}
 \alias{print.stat.slide}
 
+\encoding{latin1}
+
 \title{ Sliding statistics }
 \description{
 Statistical parameters are not constant along a time series: mean or variance can vary each year, or during particular intervals (radical or smooth changes due to a pollution, a very cold winter, a shift in the system behaviour, etc. Sliding statistics offer the potential to describe series on successive blocs defined along the space-time axis
@@ -18,9 +20,9 @@ print.stat.slide(x, ...)
 stat.slide(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL,
         deltat=1/frequency, basic=FALSE, desc=FALSE, norm=FALSE,
         pen=FALSE, p=0.95)
-plot.stat.slide(statsl, stat="mean", col=c(1, 2), lty=c(par("lty"), par("lty")),
+\method{plot}{stat.slide}(statsl, stat="mean", col=c(1, 2), lty=c(par("lty"), par("lty")),
         leg=FALSE, llab=c("series", stat), lpos=c(1.5, 10), \dots)
-lines.stat.slide(statsl, stat="mean", col=3, lty=1, \dots)
+\method{lines}{stat.slide}(statsl, stat="mean", col=3, lty=1, \dots)
 }
 \arguments{
   \item{x}{ a vector with time data }

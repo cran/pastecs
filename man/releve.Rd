@@ -1,10 +1,13 @@
 \name{releve}
 \alias{releve}
+
+\encoding{latin1}
+
 \non_function{}
 \title{ A data frame of six phytoplankton taxa followed in time at one station }
 \usage{data(releve)}
 \description{
-The \code{releve} data frame has 61 rows and 8 columns. Several phytoplankton taxa were numbered in a single station from 1989 to 1992, but at irregular times. 
+The \code{releve} data frame has 61 rows and 8 columns. Several phytoplankton taxa were numbered in a single station from 1989 to 1992, but at irregular times.
 }
 \format{
   This data frame contains the following columns:

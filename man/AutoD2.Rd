@@ -2,6 +2,9 @@
 \alias{AutoD2}
 \alias{CrossD2}
 \alias{CenterD2}
+
+\encoding{latin1}
+
 \title{ AutoD2, CrossD2 or CenterD2 analysis of a multiple time-series }
 \description{
   Compute and plot multiple autocorrelation using Mahalanobis generalized distance D2. AutoD2 uses the same multiple time-series. CrossD2 compares two sets of multiple time-series having same size (same number of descriptors). CenterD2 compares subsamples issued from a single multivariate time-series, aiming to detect discontinuities.
@@ -56,7 +59,7 @@ Ibanez, F., 1991. \emph{Treatment of the data deriving from the COST 647 project
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\section{WARNING }{If data are too heterogeneous, results could be biased (a singularity matrix appears in the calculations).} 
+\section{WARNING }{If data are too heterogeneous, results could be biased (a singularity matrix appears in the calculations).}
 
 \seealso{ \code{\link[base]{mahalanobis}}, \code{\link[stats]{acf}} }
 

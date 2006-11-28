@@ -14,8 +14,6 @@ function(x, y=NULL, frequency=12, units="years", datemin=NULL, dateformat="m/d/Y
 		x <- as.vector(x)
 		y <- as.vector(y)
 	} else {		# We must have a time series in x
-		# Require a library in R
-		# Now done with Depends: field if (exists("is.R") && is.function(is.R) && is.R()) require(stats)
 		if (!is.tseries(x))
 			stop("x must be a regular time series if y is not provided")
 		y <- as.vector(x)
@@ -24,9 +22,9 @@ function(x, y=NULL, frequency=12, units="years", datemin=NULL, dateformat="m/d/Y
 	# Verify units argument (currently, only "years" and "days" are accepted)
 	UNITS <- c("years", "days")
 	units <- pmatch(units, UNITS)
-	if (is.na(units)) 
+	if (is.na(units))
 		stop("invalid units value")
-	if (units == -1) 
+	if (units == -1)
 		stop("ambiguous units value")
 	x <- switch(units,
 		"years"=x,									# No transformation required
@@ -39,7 +37,7 @@ function(x, y=NULL, frequency=12, units="years", datemin=NULL, dateformat="m/d/Y
 	nocycle <- setdiff(1:frequency, cycle)
 	# If at least one value does not happen, we must create dummy entries
 	if (length(nocycle) > 0) {
-		n <- length(nocycle)	
+		n <- length(nocycle)
 		cycle <- c(cycle, nocycle)
 		years <- c(years, years[1:n])
 		y <- c(y, rep(NA, n))

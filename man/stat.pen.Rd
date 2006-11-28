@@ -1,5 +1,8 @@
 \name{stat.pen}
 \alias{stat.pen}
+
+\encoding{latin1}
+
 \title{ Pennington statistics on a data frame or time series }
 \description{
   Compute a table giving various descriptive statistics, including Pennington's estimators of the mean, the variance and the variance of the mean, about the series in a data frame or in a single/multiple time series
@@ -20,7 +23,7 @@ stat.pen(x, basic=FALSE, desc=FALSE)
 Pennington, M., 1983. \emph{Efficient estimations of abundance for fish and plankton surveys.} Biometrics, 39:281-286.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
-\note{ 
+\note{
 If you prefer to get separate statistics for various time intervals in your time series, use \code{stat.slide()}. Various other descriptive statistics, including test of the normal distribution are also available in \code{stat.desc()}
 }
 

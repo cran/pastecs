@@ -1,5 +1,8 @@
 \name{reglin}
 \alias{reglin}
+
+\encoding{latin1}
+
 \title{ Regulation of a series using a linear interpolation }
 \description{
   Transform an irregular time series in a regular time series, or fill gaps in regular time series using a linear interpolation

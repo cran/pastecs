@@ -1,5 +1,8 @@
 \name{vario}
 \alias{vario}
+
+\encoding{latin1}
+
 \title{ Compute and plot a semi-variogram }
 \description{
   Compute a classical semi-variogram for a single regular time series
@@ -16,7 +19,7 @@ vario(x, max.dist=length(x)/3, plotit=TRUE, vario.data=NULL)
 \value{
   A data frame containing distance and semi-variogram values
 }
-\references{ 
+\references{
 David, M., 1977. \emph{Developments in geomathematics. Tome 2: Geostatistical or reserve estimation.} Elsevier Scientific, Amsterdam. 364 pp.
 
 Delhomme, J.P., 1978. \emph{Applications de la théorie des variables régionalisées dans les sciences de l'eau.} Bull. BRGM, section 3 n°4:341-375.

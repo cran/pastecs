@@ -1,5 +1,8 @@
 \name{regul.adj}
 \alias{regul.adj}
+
+\encoding{latin1}
+
 \title{ Adjust regulation parameters }
 \description{
   Calculate and plot an histogram of the distances between interpolated observations in a regulated time series and closest observations in the initial irregular time series. This allows to optimise the \code{tol} parameter
@@ -40,7 +43,7 @@ regul.adj(x, xmin=min(x), frequency=NULL, deltat, tol=deltat,
 \examples{
 # This example follows the example for regul.screen()
 # where we determined that xmin=9, deltat=21, n=63, with tol=1.05
-# is a good choice to regulate the irregular time series in 'releve' 
+# is a good choice to regulate the irregular time series in 'releve'
 data(releve)
 regul.adj(releve$Day, xmin=9, deltat=21)
 # The histogram indicates that it is not useful to increase tol

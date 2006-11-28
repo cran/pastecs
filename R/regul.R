@@ -38,7 +38,7 @@ function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, d
 		if (pmatch("window", arg.names, 0) == 0)
 			window <- specs$window
 		if (pmatch("split", arg.names, 0) == 0)
-			split <- specs$split	
+			split <- specs$split
 	}
 	# Evaluate arguments now
 	x <- x
@@ -98,11 +98,7 @@ function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, d
 		# We have days as units. We want years with a "linear scale", i.e.: 1 year = 365.25 days, 1 month = 1/12 years
 		# We want also the integer value reflect exactly the current year, i.e.: 1997.xxx for dates in the year 1997
 		if(is.null(yearorig <- options("chron.origin")$year)) {
-			if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-				yearorig <- 1970
-			} else {												# We are in Splus
-				yearorig <- 1960
-			}
+			yearorig <- 1970
 		}
 		x <- x/365.25 + yearorig
 		xmin <- xmin/365.25 + yearorig
@@ -117,13 +113,13 @@ function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, d
 	nser <- ncol(y)
 	if (is.null(nser)) nser <- 1		# when y is a vector
 	if (length(methods) < nser)
-		methods <- rep(methods, length.out=nser)	
+		methods <- rep(methods, length.out=nser)
 	methindex <- NULL
 	for (i in 1:length(methods)) {
 		methindex[i] <- pmatch(methods[i], METHODS)
-		if (is.na(methindex[i])) 
+		if (is.na(methindex[i]))
 			stop(paste("invalid regulation method:", methods[i]))
-		if (methindex[i] == -1) 
+		if (methindex[i] == -1)
 			stop(paste("ambiguous regulation method:", methods[i]))
 	}
 	# Regulate each column of the matrix in turn
@@ -176,9 +172,9 @@ function (x, y = NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, d
 	# now we calculate match according to tol.type
 	TOL.TYPES <- c("left", "both", "right", "none")
 	tol.idx <- pmatch(tol.type, TOL.TYPES)
-	if (is.na(tol.idx)) 
+	if (is.na(tol.idx))
 		stop("invalid tol.type value")
-	if (tol.idx == -1) 
+	if (tol.idx == -1)
 		stop("ambiguous tol.type value")
 	# make sure tol.type is fully spelled
 	tol.type <- switch(tol.idx,

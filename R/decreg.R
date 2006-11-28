@@ -1,29 +1,20 @@
 "decreg" <-
 function(x, xreg, type="additive") {
 	call <- match.call()
-	if (is.matrix(x) && ncol(x) != 1) 
+	if (is.matrix(x) && ncol(x) != 1)
 		stop("only univariate series are allowed")
 	if (length(x) != length(xreg))
-		stop("x and xreg must have same row number")	
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		# Now done with Depends: field require(stats)
-		x <- as.ts(x)
-		xreg <- as.ts(xreg)
-		# Make sure "tsp" attributes are the same for both series
-		attr(xreg, "tsp") <- attr(x, "tsp")
-	#		stop("time series must have same time scale")
-	} else {												# We are in S+
-		x <- as.rts(x)
-		xreg <- as.rts(xreg)
-		# Make sure "tspar" attributes are the same for both series
-		attr(xreg, "tspar") <- attr(x, "tspar")
-	}
+		stop("x and xreg must have same row number")
+	x <- as.ts(x)
+	xreg <- as.ts(xreg)
+	# Make sure "tsp" attributes are the same for both series
+	attr(xreg, "tsp") <- attr(x, "tsp")
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex)) 
+		if (is.na(typeindex))
 			stop("invalid type value")
-		if (typeindex == -1) 
+		if (typeindex == -1)
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -32,11 +23,7 @@ function(x, xreg, type="additive") {
 	# create our own specs component
 	specs <- list(method="reg", type=type, xreg=xreg)
 	# we recuperate units from x
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		units <- attr(x, "units")
-	} else {
-		units <- attr(attr(x, "tspar"), "units")
-	}
+	units <- attr(x, "units")
 	model <- xreg
 	# Calculate residuals
 	if (type == "additive") {

@@ -1,6 +1,9 @@
 \name{local.trend}
 \alias{local.trend}
 \alias{identify.local.trend}
+
+\encoding{latin1}
+
 \title{ Calculate local trends using cumsum }
 \description{
   A simple method using cumulated sums that allows to detect changes in the tendency in a time series
@@ -11,7 +14,7 @@
 }
 \usage{
 local.trend(x, k=mean(x), plotit=TRUE, \dots)
-identify.local.trend(loctrd)
+\method{identify}{local.trend}(loctrd)
 }
 \arguments{
   \item{x}{ a regular time series (a 'rts' object under S+ or a 'ts' object under \R) }
@@ -22,17 +25,17 @@ identify.local.trend(loctrd)
 }
 \details{
   With \code{local.trend()}, you can:
-  
+
   - detect changes in the mean value of a time series
-  
+
   - determine the date of occurence of such changes
-  
+
   - estimate the mean values on homogeneous intervals
 }
 \value{
   a 'local.trend' object is returned. It has the method \code{identify()}
 }
-\references{ 
+\references{
 Ibanez, F., J.M. Fromentin & J. Castel, 1993. \emph{Application de la méthode des sommes cumulées à l'analyse des séries chronologiques océanographiques.} C. R. Acad. Sci. Paris, Life Sciences, 316:745-748.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }

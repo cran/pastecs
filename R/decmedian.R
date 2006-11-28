@@ -1,12 +1,8 @@
 "decmedian" <-
 function(x, type="additive", order=1, times=1, ends="fill") {
 	call <- match.call()
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		x <- as.ts(x)
-	} else {												# We are in S+
-		x <- as.rts(x)
-	}
-	if (is.matrix(x) && ncol(x) != 1) 
+	x <- as.ts(x)
+	if (is.matrix(x) && ncol(x) != 1)
 		stop("only univariate series are allowed")
 	if (!is.numeric(order) || order <= 0)
 		stop("order must be a positive number")
@@ -15,9 +11,9 @@ function(x, type="additive", order=1, times=1, ends="fill") {
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex)) 
+		if (is.na(typeindex))
 			stop("invalid type value")
-		if (typeindex == -1) 
+		if (typeindex == -1)
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -26,9 +22,9 @@ function(x, type="additive", order=1, times=1, ends="fill") {
 	# Check the ends argument and treat the series accordingly
 	ENDS <- c("NAs", "fill")
 	endsindex <- pmatch(ends, ENDS)
-	if (is.na(endsindex)) 
+	if (is.na(endsindex))
 		stop("invalid ends value")
-	if (endsindex == -1) 
+	if (endsindex == -1)
 		stop("ambiguous ends value")
 	# make sure ends is fully spelled
 	ends <- switch(endsindex,
@@ -38,11 +34,7 @@ function(x, type="additive", order=1, times=1, ends="fill") {
 	# create our own specs component
 	specs <- list(method="median", type=type, order=order, times=times, ends=ends)
 	# we recuperate units from x
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		units <- attr(x, "units")
-	} else {
-		units <- attr(attr(x, "tspar"), "units")
-	}
+	units <- attr(x, "units")
 	# perform filtering
 	filtmedian <- function(x, n, order, term, na.rm) {
 		X <- NULL
@@ -66,8 +58,6 @@ function(x, type="additive", order=1, times=1, ends="fill") {
 	} else {
 		residuals <- x / filtered
 	}
-	#if (exists("is.R") && is.function(is.R) && is.R())	# We are in R
-		# Now done with Depends: field require(stats)
 	series <- ts.union(filtered, residuals)
 	# create our own 'tsd' structure
 	res <- list(ts="series", series=series, units=units, specs=specs, call=call)

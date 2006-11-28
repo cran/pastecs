@@ -3,14 +3,9 @@ function(series, intervals=c(1, length(series)/5), step=1, complete=FALSE, two.t
 	call <- match.call()
 	data <- deparse(substitute(series))
 	fun <- deparse(substitute(FUN))
-	if (exists("is.R") && is.function(is.R) && is.R()) {	# We are in R
-		if (is.null(class(series)) || class(series) != "ts")
-			stop("series must be a single regular time series")
-		Unit <- attr(series, "units")
-	} else {												# We are in Splus
-		# Cannot test if this is a time series in Splus
-		Unit <- attr(attr(series, "tspar"), "units")
-	}
+	if (is.null(class(series)) || class(series) != "ts")
+		stop("series must be a single regular time series")
+	Unit <- attr(series, "units")
 	UnitTxt <- GetUnitText(series)
 	# Determine if there are many successive sequences of zeros
 	X <- as.vector(series)
@@ -27,12 +22,12 @@ function(series, intervals=c(1, length(series)/5), step=1, complete=FALSE, two.t
     if (intervals[1] < 1 || intervals[1] > n/3)
     	stop("Interval must be larger or equal to 1, and smaller or equal to n/3")
     if (intervals[2] < 1 || intervals[2] > n/3)
-    	stop("Interval must be larger or equal to 1, and smaller or equal to n/3")	
+    	stop("Interval must be larger or equal to 1, and smaller or equal to n/3")
     Inter.vec <- seq(intervals[1], intervals[2], step)
     if (length(Inter.vec) < 2)
     	stop("Less than 2 intervals. Redefine intervals or step")
 	n.vec <- nturns.vec <- nturns.min.vec <- nturns.max.vec <- Info.vec <- Info.min.vec <- Info.max.vec <- Inter.vec
-    
+
     # Calculate the first step for the turnogram
 	turnogram.step1 <- function(Series, Interval, Complete, Fun) {
 		if (Complete == FALSE) {		# We just start intervals from the first observation
@@ -49,14 +44,14 @@ function(series, intervals=c(1, length(series)/5), step=1, complete=FALSE, two.t
 				if (length(Ser) %% Interval !=0) Ser <- c(Ser, rep(NA, Interval - (length(Ser) %% Interval)))
 				dim(Ser) <- c(Interval, length(Ser) %/% Interval)
 				x <- apply(Ser, 2, Fun, na.rm=TRUE)
-				Nturns.vec[j] <- turnpoints(x)$nturns	
+				Nturns.vec[j] <- turnpoints(x)$nturns
 				n[j] <- length(x)
 			}
 			res <- list(n=n, nturns=Nturns.vec)
 		}
 		res
 	}
-    
+
     # Calculate all first steps (n and nturns) for the turnogram
 	if (complete == FALSE) {
 		for (i in 1:length(Inter.vec)) {
@@ -102,7 +97,7 @@ function(series, intervals=c(1, length(series)/5), step=1, complete=FALSE, two.t
 	if (two.tailed == TRUE) res$proba <- "two-tailed probability" else res$proba <- "one-tailed probability"
 	res$units.text <- UnitTxt
 	attr(res, "units") <- Unit
-	
+
 	# Do we need to plot the graph for the turnogram?
 	if (plotit == TRUE) {
 		Ilevel <- -log(level, base=2)

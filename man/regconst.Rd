@@ -1,5 +1,8 @@
 \name{regconst}
 \alias{regconst}
+
+\encoding{latin1}
+
 \title{ Regulate a series using the constant value method }
 \description{
   Transform an irregular time series in a regular time series, or fill gaps in regular time series using the constant value method
@@ -21,7 +24,7 @@ regconst(x, y=NULL, xmin=min(x), n=length(x),
   This is the simplest, but the less powerful regulation method. Interpolated values are calculated according to existing observations at left and at right as: x[reg] = x[right]*f + x[left]*(f-1), with 0 < f < 1.
 }
 \value{
-  An object of type 'regul' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{hist()}, \code{extract()} and \code{specs()}.  
+  An object of type 'regul' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{hist()}, \code{extract()} and \code{specs()}.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 \note{ This function uses \code{approx()} for internal calculations }
@@ -38,4 +41,3 @@ lines(reg$x, reg$y, col=2)
 \keyword{ manip }
 \keyword{ chron }
 \keyword{ smooth }
-

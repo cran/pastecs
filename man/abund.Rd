@@ -7,19 +7,22 @@
 \alias{print.abund}
 \alias{print.summary.abund}
 \alias{summary.abund}
+
+\encoding{latin1}
+
 \title{ Sort variables by abundance }
 \description{
   Sort variables (usually species in a species x stations matrix) in function of their abundance, either in number of non-null values, or in number of individuals (in log). The \code{f} coefficient allows adjusting weight given to each of these two criteria.
 }
 \synopsis{
-abund(x, f=0.2) 
-extract.abund(e, n, left=TRUE, ...)
-identify.abund(x, label.pts=FALSE, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)
-lines.abund(x, n=x$n, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)
-plot.abund(x, n=x$n, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, all=TRUE, dlab=c("cumsum", "\% log(ind.)", "\% non-zero"), dcol=c(1,2,4), dlty=c(par("lty"), par("lty"), par("lty")), dpos=c(1.5, 20), type="l", xlab="variables", ylab="abundance", main=paste("Abundance sorting for:",x$data, "with f =", round(x$f, 4)), ...)
-print.abund(x, ...)
-print.summary.abund(x, ...)
-summary.abund(object, ...)
+abund(x, f=0.2)
+\method{extract}{abund}(e, n, left=TRUE, ...)
+\method{identify}{abund}(x, label.pts=FALSE, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)
+\method{lines}{abund}(x, n=x$n, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)
+\method{plot}{abund}(x, n=x$n, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, all=TRUE, dlab=c("cumsum", "\% log(ind.)", "\% non-zero"), dcol=c(1,2,4), dlty=c(par("lty"), par("lty"), par("lty")), dpos=c(1.5, 20), type="l", xlab="variables", ylab="abundance", main=paste("Abundance sorting for:",x$data, "with f =", round(x$f, 4)), ...)
+\method{print}{abund}(x, ...)
+\method{print}{summary.abund}(x, ...)
+\method{summary}{abund}(object, ...)
 }
 \usage{
 abund(x, f=0.2)

@@ -1,5 +1,8 @@
 \name{regul.screen}
 \alias{regul.screen}
+
+\encoding{latin1}
+
 \title{ Test various regulation parameters }
 \description{
   Seek for the best combination of the number of observation, the interval between two successive observation and the position of the first observation in the regulated time series to match as much observations of the initial series as possible
@@ -48,7 +51,7 @@ mean(intervals)
 # But is it the best one?
 regul.screen(releve$Day, xmin=0:11, deltat=16:27, tol=1.05)
 # Now we can tell that xmin=9, deltat=21, n=63, with tol=1.05
-# is a much better choice! 
+# is a much better choice!
 }
 \keyword{ ts }
 \keyword{ chron }

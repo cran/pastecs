@@ -10,12 +10,15 @@
 \alias{print.summary.regul}
 \alias{specs.regul}
 \alias{summary.regul}
+
+\encoding{latin1}
+
 \title{ Regulation of one or several time series using various methods }
 \description{
   Regulate irregular time series or regular time series with gaps. Create a \code{regul} object from whose one or several regular time series can be extracted using \code{extract()} or \code{tseries()}. This is the function to apply most of the time to create regular time series ('rts' objects in Splus or 'ts' objects in \R) that will be further analyzed by other functions that apply to regular time series.
 }
 \synopsis{
-regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=FALSE, window=(max(x) - min(x))/(n - 1), split=100, specs=NULL) 
+regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL, deltat=1/frequency, datemin=NULL, dateformat="m/d/Y", tol=NULL, tol.type="both", methods="linear", rule=1, f=0, periodic=FALSE, window=(max(x) - min(x))/(n - 1), split=100, specs=NULL)
 extract.regul(e, n, series=NULL, ...)
 hist.regul(x, nclass=30, col=c(4, 5, 2), xlab=paste("Time distance in", x$units, "with start =", min(x$x), , ylab=paste("Frequency, tol =", x$specs$tol), main="Number of matching observations", plotit=TRUE, ...)
 identify.regul(x, series=1, col=3, label="#", ...)
@@ -80,7 +83,7 @@ regul(x, y=NULL, xmin=min(x), n=length(x), units="days", frequency=NULL,
 \value{
   An object of type 'regul' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{hist()}, \code{extract()} and \code{specs()}.
 }
-\references{ 
+\references{
 Lancaster, P. & K. Salkauskas, 1986. \emph{Curve and surface fitting.} Academic Press, England, 280 pp.
 
 Fox, W.T. & J.A. Brown, 1965. \emph{The use of time-trend analysis for environmental interpretation of limestones.} J. Geol., 73:510-518.

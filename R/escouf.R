@@ -8,7 +8,7 @@ function(x, level=1, verbose=TRUE) {
 	Data <- deparse(substitute(x))
 	# Calculate the trace of a matrix (sum of its diagonal elements)
 	Trace <- function(x) {sum(c(x)[1 + 0:(min(dim(x)) - 1) * (dim(x)[1] + 1)], na.rm=TRUE)}
-		
+
 	x <- as.data.frame(x)	# We want to be sure to work on a data frame!
 	Names <- names(x)
 	p <- ncol(x)
@@ -23,7 +23,7 @@ function(x, level=1, verbose=TRUE) {
 				x2 <- cbind(x, x[vr], x[vt[j]])
 			} else {
 				x2 <- cbind(x, x[vt[j]])
-			}	
+			}
 			Rtot <- cor(x2)		# Correlations table
 			Ryy <- Rtot[1:p, 1:p]
 			Rxx <- Rtot[(p+1):(p+i), (p+1):(p+i)]
@@ -41,8 +41,7 @@ function(x, level=1, verbose=TRUE) {
 		if (verbose==TRUE) {
 			vrStr <- format(c(vr[i], 111))[1]
 			cat("Variable", vrStr, "incorporated, RV =", Rvmax, "\n")
-			if (exists("is.R") && is.function(is.R) && is.R() && R.Version()$os == "Win32") {	# We are in R Windows
-				flush.console()}
+			flush.console()
 		}
 		if (Rvmax>level) break	# Stop iteration (level reached)
 	}

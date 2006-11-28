@@ -7,12 +7,15 @@
 \alias{print.tsd}
 \alias{specs.tsd}
 \alias{summary.tsd}
+
+\encoding{latin1}
+
 \title{ Decomposition of one or several regular time series using various methods }
 \description{
   Use a decomposition method to split the series into two or more components. Decomposition methods are either series filtering/smoothing (difference, average, median, evf), deseasoning (loess) or model-based decomposition (reg, i.e., regression).
 }
 \synopsis{
-tsd(x, specs=NULL, method="loess", type=if (method == "census") "multiplicative" else "additive", lag=1, axes=1:5, order=1, times=1, sides=2, ends="fill", weights=NULL, s.window=NULL, s.degree=0, t.window=NULL, t.degree=2, robust=FALSE, trend=FALSE, xreg=NULL) 
+tsd(x, specs=NULL, method="loess", type=if (method == "census") "multiplicative" else "additive", lag=1, axes=1:5, order=1, times=1, sides=2, ends="fill", weights=NULL, s.window=NULL, s.degree=0, t.window=NULL, t.degree=2, robust=FALSE, trend=FALSE, xreg=NULL)
 extract.tsd(e, n, series=NULL, components=NULL, ...)
 plot.tsd(x, series=1, stack=TRUE, resid=TRUE, col=par("col"), lty=par("lty"), labels=dimnames(X)[[2]], leg=TRUE, lpos=c(0, 0), xlab="time", ylab="series", main=paste("Series decomposition by", x$specs$method, "-", x$specs$type), ...)
 print.specs.tsd(x, ...)
@@ -51,7 +54,7 @@ tsd(x, specs=NULL, method="loess", type="additive", \dots)
 \value{
   An object of type 'tsd' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{extract()} and \code{specs()}.
 }
-\references{ 
+\references{
 Kendall, M., 1976. \emph{Time-series.} Charles Griffin & Co Ltd. 197 pp.
 
 Laloire, J.C., 1972. \emph{Méthodes du traitement des chroniques.} Dunod, Paris, 194 pp.
