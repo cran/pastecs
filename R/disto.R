@@ -31,7 +31,7 @@ function(x, max.dist=nrow(x)/4, plotit=TRUE, disto.data=NULL) {
     	res <- disto.data
     }
     if (plotit == TRUE) {	# plot the distogram
-    	plot(res$distance, res$distogram, type="l", xlab="distance", ylab="delta²", main=paste("Distogram for:", attr(res, "data")))
+    	plot(res$distance, res$distogram, type="l", xlab="distance", ylab="delta^2", main=paste("Distogram for:", attr(res, "data")))
     }
     res
 }

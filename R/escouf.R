@@ -12,12 +12,12 @@ function(x, level=1, verbose=TRUE) {
 	x <- as.data.frame(x)	# We want to be sure to work on a data frame!
 	Names <- names(x)
 	p <- ncol(x)
-	Rvmax <- 0
 	vt <- 1:p					# Variable to test
 	vr <- NULL					# Held variables
 	vrt <- NULL					# Temporarily held variables
 	RV <- NULL					# Final held variables
 	for (i in 1:p) {			# Loop on the number of variables
+		Rvmax <- 0
 		for (j in 1:(p-i+1)) {	# loop on variables
 			if (!is.null(vr)) {	# New table
 				x2 <- cbind(x, x[vr], x[vt[j]])
