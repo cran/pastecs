@@ -4,6 +4,8 @@ function(x) {
 		stop("x must be a 'regul' or a 'tsd' object")
 	if (class(x) == "regul") {
 		if (ncol(x$y) == 1) y <- x$y[[1]] else y <- as.matrix(x$y)
+		# The treatment is different in R ans in S+
+		# In R, we create a 'ts' object, in S+, we create a 'rts' object
 		# we create a 'ts' object
 		res <- ts(y, start=x$tspar$start, frequency=x$tspar$frequency)
 		attr(res, "units") <- x$units

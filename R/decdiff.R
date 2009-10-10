@@ -2,7 +2,7 @@
 function(x, type="additive", lag=1, order=1, ends="fill") {
 	call <- match.call()
 	x <- as.ts(x)
-	if (is.matrix(x) && ncol(x) != 1)
+	if (is.matrix(x) && ncol(x) != 1) 
 		stop("only univariate series are allowed")
 	if (!is.numeric(lag) || lag <= 0)
 		stop("lag must be a positive number")
@@ -11,9 +11,9 @@ function(x, type="additive", lag=1, order=1, ends="fill") {
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -22,9 +22,9 @@ function(x, type="additive", lag=1, order=1, ends="fill") {
 	# Check the ends argument and treat the series accordingly
 	ENDS <- c("NAs", "fill", "drop")
 	endsindex <- pmatch(ends, ENDS)
-	if (is.na(endsindex))
+	if (is.na(endsindex)) 
 		stop("invalid ends value")
-	if (endsindex == -1)
+	if (endsindex == -1) 
 		stop("ambiguous ends value")
 	# make sure ends is fully spelled
 	ends <- switch(endsindex,

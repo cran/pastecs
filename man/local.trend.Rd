@@ -25,17 +25,17 @@ local.trend(x, k=mean(x), plotit=TRUE, \dots)
 }
 \details{
   With \code{local.trend()}, you can:
-
+  
   - detect changes in the mean value of a time series
-
+  
   - determine the date of occurence of such changes
-
+  
   - estimate the mean values on homogeneous intervals
 }
 \value{
   a 'local.trend' object is returned. It has the method \code{identify()}
 }
-\references{
+\references{ 
 Ibanez, F., J.M. Fromentin & J. Castel, 1993. \emph{Application de la méthode des sommes cumulées à l'analyse des séries chronologiques océanographiques.} C. R. Acad. Sci. Paris, Life Sciences, 316:745-748.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }

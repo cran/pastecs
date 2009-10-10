@@ -8,9 +8,9 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -25,15 +25,15 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 	# perform filtering
 	n <- length(x)
 	period <- frequency(x)
-    if (period < 2 || n < 3 * period)
+    if (period < 2 || n < 3 * period) 
         stop("series is not periodic or has less than three periods")
-   # if (period < 2 || n < 4 * period)
+   # if (period < 2 || n < 4 * period) 
    #     stop("series is not periodic or has less than four periods")
     if (n %% period != 0)
     	stop("the series must have an integer number of periods")
     if(sum(is.na(x)) > 0)
 		stop("no missing value allowed for this method")
-
+	
 	X <- as.vector(x)
 	# 1) This is to test if there is a seasonal fluctuation
 	test <- c(NA, 200*X[2:(n-1)]/(X[1:(n-2)]+X[3:n]), NA)
@@ -49,8 +49,8 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 		Amp <- NULL
 	} else {
 		# 2) A mobile mean with a window equal to frequency is applied
-		if (period %% 2 == 0) {
-			filter1 <- c(1/(2*period), rep(1/period, period-1), 1/(2*period))
+		if (period %% 2 == 0) { 
+			filter1 <- c(1/(2*period), rep(1/period, period-1), 1/(2*period)) 
 		} else {
 			filter1 <- rep(1/period, period)
 		}
@@ -61,7 +61,7 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 		B2 <- as.vector(B)
 		nc <- n/period
 		dim(B2) <- c(period, nc)
-
+	
 		# 4) Regulation of B (order 2 mobile mean accross years), and we add two values at each size first
 		S2 <- B2
 		nr2 <- period/2
@@ -101,23 +101,23 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 		dim(B2.cent) <- c(nc, period)
 		B2.cent <- t(B2.cent)
 		S1 <- B2 * (period * 100) / B2.cent
-
+				
 		# 5) First approximation of S1 with a mobile mean
 		S1.lead <- apply(S1[,1:2], 1, mean)
 		S1.trail <- apply(S1[,(nc-1):nc], 1, mean)
 		S1 <- cbind(S1.lead, S1.lead, S1, S1.trail, S1.trail)
 		S1 <- t(apply(S1, 1, filter, c(1/9, 2/9, 3/9, 2/9, 1/9), method="convolution"))
 		S1 <- S1[, 3:(nc+2)]
-
+	
 		# 6) First approximation of CI1
 		dim(S1) <- NULL
 		CI1 <- x / S1
-
+				
 		# 7) First approximation of C1 (add 7 values at begin and end and apply Spencer filter)
 		C1 <- c(rep(mean(CI1[1:4]), 7), CI1, rep(mean(CI1[(n-3):n]), 7))
 		C1 <- filter(C1, c(-3,-6,-5,3,21,46,67,74,67,46,21,3,-5,-6,-3)/320, method="convolution")
 		C1 <- as.vector(C1[8:(n+7)])
-
+	
 		# 8) First approximation of I1
 		I1 <- CI1 / C1*100		#*100
 		Amp <- sum(abs(I1[2:n] - I1[1:(n-1)]))/(n-1)
@@ -125,7 +125,7 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 				warning("The 'census' decomposition is not calculable for one series (Amp == NA)")
 				series <- x
 		} else {
-
+		
 			# 9) Second approximation of SI
 			D <- x / C1*100			#*100
 			B2 <- as.vector(D)
@@ -152,7 +152,7 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 			dim(B2.cent) <- c(nc, period)
 			B2.cent <- t(B2.cent)
 			S1 <- B2 * (period * 100) / B2.cent
-
+		
 			# 10) Final season indices
 			if (Amp > 2) {
 				S1.lead <- apply(S1[,1:3], 1, mean)
@@ -167,16 +167,16 @@ function(x, type="multiplicative", trend=FALSE) {			# Only the multiplicative mo
 				S1 <- t(apply(S1, 1, filter, c(1/9, 2/9, 3/9, 2/9, 1/9), method="convolution"))
 				S <- S1[, 3:(nc+2)]
 			}
-
+			
 			# 11) Final deseasoned series CI
 			dim(S) <- NULL
 			CI <- x / S	*100
-
+		
 			# 12) Final cyclic trend component C
 			C <- c(rep(mean(CI[1:4]), 7), CI, rep(mean(CI[(n-3):n]), 7))
 			C <- filter(C, c(-3,-6,-5,3,21,46,67,74,67,46,21,3,-5,-6,-3)/320, method="convolution")
 			C <- as.vector(C[8:(n+7)])
-
+	
 			# 13) Final random component I
 			I <- CI / C	*100
 			Amp <- sum(abs(I1[2:n] - I1[1:(n-1)]))/(n-1)

@@ -26,7 +26,7 @@ regspline(x, y=NULL, xmin=min(x), n=length(x),
 \value{
   An object of type 'regul' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{hist()}, \code{extract()} and \code{specs()}.
 }
-\references{
+\references{ 
 Lancaster, P. & K. Salkauskas, 1986. \emph{Curve and surface fitting.} Academic Press, England, 280 pp.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }

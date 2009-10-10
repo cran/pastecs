@@ -1,20 +1,20 @@
 "decreg" <-
 function(x, xreg, type="additive") {
 	call <- match.call()
-	if (is.matrix(x) && ncol(x) != 1)
+	if (is.matrix(x) && ncol(x) != 1) 
 		stop("only univariate series are allowed")
 	if (length(x) != length(xreg))
-		stop("x and xreg must have same row number")
+		stop("x and xreg must have same row number")	
 	x <- as.ts(x)
 	xreg <- as.ts(xreg)
 	# Make sure "tsp" attributes are the same for both series
 	attr(xreg, "tsp") <- attr(x, "tsp")
-	# Check the type argument
+ 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,

@@ -59,9 +59,9 @@ Ibanez, F., 1991. \emph{Treatment of the data deriving from the COST 647 project
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 
-\section{WARNING }{If data are too heterogeneous, results could be biased (a singularity matrix appears in the calculations).}
+\section{WARNING }{If data are too heterogeneous, results could be biased (a singularity matrix appears in the calculations).} 
 
-\seealso{ \code{\link[base]{mahalanobis}}, \code{\link[stats]{acf}} }
+\seealso{ \code{\link[stats]{acf}} }
 
 \examples{
 data(marphy)

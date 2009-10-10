@@ -23,7 +23,7 @@ stat.pen(x, basic=FALSE, desc=FALSE)
 Pennington, M., 1983. \emph{Efficient estimations of abundance for fish and plankton surveys.} Biometrics, 39:281-286.
 }
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
-\note{
+\note{ 
 If you prefer to get separate statistics for various time intervals in your time series, use \code{stat.slide()}. Various other descriptive statistics, including test of the normal distribution are also available in \code{stat.desc()}
 }
 

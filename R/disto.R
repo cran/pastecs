@@ -19,7 +19,7 @@ function(x, max.dist=nrow(x)/4, plotit=TRUE, disto.data=NULL) {
     	# Calculate mean values for each distance
     	res <- rep(0, max.dist)
     	for (i in 1:max.dist) {
-    		res[i] <- mean(val[val$distance == i,]$distogram, na.rm=TRUE)/2
+    		res[i] <- mean(val[val$distance == i,]$distogram, na.rm=TRUE)/2	
     	}
     	res <- list(distance=1:max.dist, distogram=res)
     	res <- as.data.frame(res)

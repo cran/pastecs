@@ -65,9 +65,9 @@ function (x, specs=NULL, method="loess", type=if(method == "census") "multiplica
  	# Verify the method argument
 	METHODS <- c("diff", "average", "median", "evf", "reg", "census", "loess")
 	methindex <- pmatch(method, METHODS)
-	if (is.na(methindex))
+	if (is.na(methindex)) 
 		stop(paste("invalid decomposition method:", method))
-	if (methindex == -1)
+	if (methindex == -1) 
 		stop(paste("ambiguous decomposition method:", method))
 	# make sure method is fully spelled
 	method <- switch(methindex,
@@ -81,9 +81,9 @@ function (x, specs=NULL, method="loess", type=if(method == "census") "multiplica
 	# Verify the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop(paste("invalid decomposition type:", type))
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop(paste("ambiguous decomposition type:", type))
 		# make sure type is fully spelled
 		type <- switch(typeindex,

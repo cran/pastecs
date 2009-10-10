@@ -18,7 +18,7 @@ decreg(x, xreg, type="additive")
 \value{
   a 'tsd' object
 }
-\references{
+\references{ 
 Frontier, S., 1981. \emph{Méthodes statistiques.} Masson, Paris. 246 pp.
 
 Kendall, M., 1976. \emph{Time-series.} Charles Griffin & Co Ltd. 197 pp.

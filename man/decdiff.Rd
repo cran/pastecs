@@ -23,7 +23,7 @@ decdiff(x, type="additive", lag=1, order=1, ends="fill")
 \value{
   a 'tsd' object
 }
-\references{
+\references{ 
 Kendall, M., 1976. \emph{Time-series.} Charles Griffin & Co Ltd. 197 pp.
 
 Laloire, J.C., 1972. \emph{Méthodes du traitement des chroniques.} Dunod, Paris, 194 pp.

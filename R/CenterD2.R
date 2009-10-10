@@ -36,7 +36,7 @@ function(series, window=nrow(series)/5, plotit=TRUE, add=FALSE, type="l", level=
 	res$chisq <- qchisq(1-level, ncol(series))
 	res$units.text <- UnitTxt
 	attr(res, "units") <- Unit
-
+		
 	# Do we need to plot the graph?
 	if (plotit == TRUE) {
 		if (add == TRUE) {

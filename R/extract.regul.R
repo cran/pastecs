@@ -17,8 +17,7 @@ function(e, n, series=NULL, ...) {
 		y <- e$y[[1]]
 	} else {			# Use series to determine which series to extract
 		y <- as.matrix(e$y)[, series]
-	}
-	# The treatment is different in R and in S+
+	}		
 	# we create a 'ts' object
 	res <- ts(y, start=e$tspar$start, frequency=e$tspar$frequency)
 	attr(res, "units") <- e$units

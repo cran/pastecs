@@ -3,7 +3,7 @@ function(x, type="additive", order=1, times=1, sides=2, ends="fill", weights=NUL
 	call <- match.call()
 	x <- as.ts(x)
 	if (is.matrix(x) && ncol(x) != 1)
-	       stop("only univariate series are allowed")
+	    stop("only univariate series are allowed")
 	if (!is.numeric(times) || times <= 0)
 		stop("times must be a positive number")
 	if (!is.numeric(sides) || (sides != 1 & sides != 2))
@@ -36,9 +36,9 @@ function(x, type="additive", order=1, times=1, sides=2, ends="fill", weights=NUL
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -47,9 +47,9 @@ function(x, type="additive", order=1, times=1, sides=2, ends="fill", weights=NUL
 	# Check the ends argument and treat the series accordingly (add calculated arguments at the beginning and at the end)
 	ENDS <- c("NAs", "fill", "circular", "periodic")
 	endsindex <- pmatch(ends, ENDS)
-	if (is.na(endsindex))
+	if (is.na(endsindex)) 
 		stop("invalid ends value")
-	if (endsindex == -1)
+	if (endsindex == -1) 
 		stop("ambiguous ends value")
 	# make sure ends is fully spelled
 	ends <- switch(endsindex,

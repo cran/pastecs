@@ -8,19 +8,19 @@ function (x, y = NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), r
 	x <- x[srt]
 	y <- y[srt]
 	# Check arguments
-	if (!is.numeric(x) || !is.numeric(y))
+	if (!is.numeric(x) || !is.numeric(y)) 
 		stop("regarea: x and y must be numeric")
     nx <- length(x)
-    if (nx != length(y))
+    if (nx != length(y)) 
         stop("x and y must have equal lengths")
-    if (nx < 2)
+    if (nx < 2) 
         stop("regarea requires at least two values to interpolate")
     # Eliminate entries with missing values
     ok <- !(is.na(x) | is.na(y))
     x <- x[ok]
     y <- y[ok]
     nx <- length(x)
-    if (nx < 2)
+    if (nx < 2) 
         stop("regarea requires at least two non-missing values to interpolate")
     if (window <= 0)
 	    stop("the window must be a positive number")
@@ -28,13 +28,13 @@ function (x, y = NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), r
 	#largestgap <- max(x[2:nx]-x[1:(nx-1)])
 	#if (window <= largestgap)		# The window must contain at least one value everywhere!
     #	stop(paste("the window must be wider than the largest gap in the series (", largestgap, ")", sep=""))
-    if (n <= 0)
+    if (n <= 0) 
     	stop("regarea requires n >= 1")
-    if (deltat <= 0)
+    if (deltat <= 0) 
     	stop("regarea requires deltat > 0")
     xout <- 0:(n-1) * deltat + xmin							# vector of xout regular sequence
     xmax <- xout[n]
-    if (!is.numeric(split))
+    if (!is.numeric(split)) 
 		stop("regarea: split must be numeric")
 	split <- round(split)
 	if (split < 1) split <- 1								# split must be a positive integer!

@@ -69,7 +69,7 @@ function(x, basic=TRUE, desc=TRUE, norm=FALSE, p=.95) {
 		if (length(Res)==0) Res <- unlist(list(nbr.val=Nbrval, nbr.null=Nbrnull, nbr.na=Nbrna, median=Median, mean=Mean, std.dev=StdDev))
 		Res
 	}
-
+	
 	# This is the body of stat.desc
 	Basic <- basic; Desc <- desc; Norm <- norm; P <- p
 	# If x is a vector, stat.desc returns a vector with results

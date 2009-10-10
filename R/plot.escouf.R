@@ -29,7 +29,7 @@ function(x, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, d
 			if (Lvars==TRUE)		# We change also colors of selected variables labels
 				axis(1, 1:nvars, labels=as.character(X$vr[1:nvars]), col.axis=Lcol)
 		}
-
+			
 	}
 	invisible(escouf.graph(x, level, lhorz, lvert, lvars, lcol, llty, diff, dlab, dcol, dlty, dpos, type, xlab, ylab, main, ...))
 }

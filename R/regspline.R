@@ -2,9 +2,9 @@
 function (x, y=NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rule=1, periodic=FALSE) {
 	# We use spline() for the calculations
 	# but we first need to calculate xmax
-	if (n <= 0)
+	if (n <= 0) 
     	stop("regspline requires n >= 1")
-    if (deltat <= 0)
+    if (deltat <= 0) 
     	stop("regspline requires deltat > 0")
 	xmax <- (n-1) * deltat + xmin
 	# ... and eliminate missing values
@@ -31,6 +31,6 @@ function (x, y=NULL, xmin=min(x), n=length(x), deltat=(max(x)-min(x))/(n-1), rul
 	res$y[res$y > ymax] <- ymax
 	# If rule == 1, we still must replace values outside {x[1], x[nx]} by NA
     if (rule == 1)
-    	res$y[res$x < x[1] | res$x > x[length(x)]] <- NA
+    	res$y[res$x < x[1] | res$x > x[length(x)]] <- NA	
 	res
 }

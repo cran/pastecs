@@ -3,17 +3,17 @@ function(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL, t.degree=
 	# loess allows only an additive model
 	call <- match.call()
 	x <- as.ts(x)
-	if (is.matrix(x))
+	if (is.matrix(x)) 
         stop("only univariate series are allowed")
     # Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# multiplicative model not handled (yet)
-		if (typeindex == 2)
+		if (typeindex == 2) 
 			stop("multiplicative model not handle by this function. Use deccensus() instead")
 		# make sure type is fully spelled
 		type <- switch(typeindex,
@@ -33,7 +33,7 @@ function(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL, t.degree=
 	} else {			# residuals is trend + remainder in the additive model (otherwise, we recalculate them)
 		series <- cbind(res.stl$time.series[, "trend"] + res.stl$time.series[, "remainder"], res.stl$time.series[, "seasonal"])
 		dimnames(series)[[2]] <- c("deseasoned", "seasonal")
-	}
+ 	}
 	# create our own 'tsd' structure
 	res <- list(ts="series", series=series, weights=res.stl$weights, units=units, specs=specs, call=call)
 	class(res) <- "tsd"		# change the class of the object to 'tsd'

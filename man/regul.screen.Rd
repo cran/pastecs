@@ -51,7 +51,7 @@ mean(intervals)
 # But is it the best one?
 regul.screen(releve$Day, xmin=0:11, deltat=16:27, tol=1.05)
 # Now we can tell that xmin=9, deltat=21, n=63, with tol=1.05
-# is a much better choice!
+# is a much better choice! 
 }
 \keyword{ ts }
 \keyword{ chron }

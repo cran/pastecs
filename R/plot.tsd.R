@@ -37,14 +37,14 @@ function (x, series=1, stack=TRUE, resid=TRUE, col=par("col"), lty=par("lty"), l
     	par(mfrow = c(nplot, 1))
     	for (i in 1:nplot) {
     		plot.type <- if (i < nplot | resid == FALSE) "l" else if (model.type == "additive") "h" else "p"
-
+    		
     		# Solution using segments for residuals based on 1
     		#x.1 <- rnorm(1000,10)  # random numbers around 10
 			#plot(x.1,type='n')
 			#segments(seq(x.1),10,seq(x.1),x.1)  # plot segments basing on 10
-
+    		
         	plot(X[, i], type = plot.type, xlab = "", ylab = "", axes = FALSE, col = col[i], lty = lty[i], ...)
-        	if (i == nplot & resid == TRUE & min(X[, i]) < 0 & max(X[, i]) > 0)
+        	if (i == nplot & resid == TRUE & min(X[, i]) < 0 & max(X[, i]) > 0) 
             	if (model.type == "additive") abline(h = 0) else abline(h = 1)
             box()
         	right <- i%%2 == 0
@@ -60,10 +60,10 @@ function (x, series=1, stack=TRUE, resid=TRUE, col=par("col"), lty=par("lty"), l
     	if (resid == TRUE) {
 			X <- as.ts(X)
 		} else {
-			n <- ncol(X) - 1
-			X <- as.ts(X[,1:n])
+			n <- ncol(X) - 1	
+			X <- as.ts(X[,1:n])	
 		}
-    	ts.plot(X, gpars=list(col=col, lty=lty, xlab=xlab, ylab=ylab, main=main))
+		ts.plot(X, gpars=list(col=col, lty=lty, xlab=xlab, ylab=ylab, main=main))
     	if (leg == TRUE) legend(lpos[1], lpos[2], labels[1:n], col=col[1:n], lty=lty[1:n])
     }
     invisible()

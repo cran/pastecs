@@ -4,7 +4,7 @@ function(tseries, R=1) {
 	x <- as.ts(tseries)
 	Names <- colnames(x)
 	if (R < 2) {	# Simple test
-		if (is.matrix(x) == TRUE) {	# Multiple time series
+		if (is.matrix(x) == TRUE) {	# Multiple time series	
 			n <- ncol(x)
 			Time <- time(x)
 			res <- NULL
@@ -29,7 +29,7 @@ function(tseries, R=1) {
 			data.rank <- apply(Tseries, 2, rank)
 			rhos <- apply(data.rank, 2, cor, rank(time(Tseries)))
 			rhos
-		}
+		}	
 		require(boot)
 		if (is.matrix(x) == TRUE && ncol(x) > 1) {
 			res <- tsboot(x, test.trends, R = R, sim = "fixed", l = 1)

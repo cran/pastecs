@@ -12,7 +12,7 @@ function(series, series2, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FA
 	if (nrow(series) != nrow(series2))
 		stop("series and series2 must have same row number")
 	if (ncol(series) != ncol(series2))
-		stop("series and series2 must have same column number")
+		stop("series and series2 must have same column number")	
 	UnitTxt <- GetUnitText(series)
 	# Test the length of the series, range and step...
 	n <- nrow(series)
@@ -21,12 +21,12 @@ function(series, series2, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FA
 	if (lags[1] < 1 || lags[1] > n/3)
 	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")
 	if (lags[2] < 1 || lags[2] > n/3)
-	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")
+	   	stop("lags must be larger or equal to 1, and smaller or equal to n/3")	
 	Lags.vec <- seq(lags[1], lags[2], step)
 	if (length(Lags.vec) < 2)
 	   	stop("Less than 2 lags. Redefine intervals or step")
 	D2.vec <- Lags.vec
-
+	    
 	# Calculate CrossD2 for each lag
 	x1 <- as.matrix(series)
 	x2 <- as.matrix(series2)
@@ -46,7 +46,7 @@ function(series, series2, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FA
 		S1 <- t(g1) %*% g1
 		S2 <- t(g2) %*% g2
 		S <- solve((S1 + S2)/(2*(n-k)-2))
-		D2.vec[i] <- (t(m) %*% S) %*% m
+		D2.vec[i] <- (t(m) %*% S) %*% m 
 	}
 	res <- list(lag=Lags.vec, D2=D2.vec)
 	as.data.frame(res)
@@ -56,7 +56,7 @@ function(series, series2, lags=c(1, nrow(series)/3), step=1, plotit=TRUE, add=FA
 	res$type <- "CrossD2"
 	res$units.text <- UnitTxt
 	attr(res, "units") <- Unit
-
+		
 	# Do we need to plot the graph?
 	if (plotit == TRUE) {
 		if (add == TRUE) {

@@ -22,7 +22,7 @@ lines.escouf(x, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE, col=2, lty=2,
 plot.escouf(x, level=x$level, lhorz=TRUE, lvert=TRUE, lvars=TRUE, lcol=2, llty=2, diff=TRUE, dlab="RV' (units not shown)", dcol=4, dlty=par("lty"), dpos=0.8, type="s", xlab="variables", ylab="RV", main=paste("Escoufier's equivalent vectors for:",x$data), ...)
 print.escouf(x, ...)
 print.summary.escouf(x, ...)
-summary.escouf(object, ...)
+summary.escouf(object, ...)  
 }
 \usage{
 escouf(x, level=1, verbose=TRUE)
@@ -58,7 +58,7 @@ escouf(x, level=1, verbose=TRUE)
 \value{
   An object of type 'escouf' is returned. It has methods \code{print()}, \code{summary()}, \code{plot()}, \code{lines()}, \code{identify()}, \code{extract()}.
 }
-\references{
+\references{ 
 Cambon, J., 1974. \emph{Vecteur équivalent à un autre au sens des composantes principales.} Application hydrologique. DEA de Mathématiques Appliquées, Université de Montpellier.
 
 Escoufier, Y., 1970. \emph{Echantillonnage dans une population de variables aléatoires réelles.} Pub. Inst. Stat. Univ. Paris, 19:1-47.
@@ -75,7 +75,7 @@ data(marbio)
 marbio.esc <- escouf(marbio)
 summary(marbio.esc)
 plot(marbio.esc)
-# The x-axis has short labels. For more info., enter:
+# The x-axis has short labels. For more info., enter: 
 marbio.esc$vr
 # Define a level at which to extract most significant variables
 marbio.esc$level <- 0.90

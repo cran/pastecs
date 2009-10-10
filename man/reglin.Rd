@@ -28,7 +28,7 @@ reglin(x, y=NULL, xmin=min(x), n=length(x),
 \author{ Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}), Philippe Grosjean (\email{phgrosjean@sciviews.org}) }
 \note{ This function uses \code{approx()} for internal calculations }
 
-\seealso{ \code{\link{regul}}, \code{\link{regarea}}, \code{\link{regconst}}, \code{\link{regspline}}, \code{\link{regul.screen}}, \code{\link{regul.adj}}, \code{\link{tseries}}, \code{\link{is.tseries}}, \code{\link[base]{approxfun}} }
+\seealso{ \code{\link{regul}}, \code{\link{regarea}}, \code{\link{regconst}}, \code{\link{regspline}}, \code{\link{regul.screen}}, \code{\link{regul.adj}}, \code{\link{tseries}}, \code{\link{is.tseries}} }
 
 \examples{
 data(releve)

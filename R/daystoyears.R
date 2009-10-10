@@ -47,7 +47,7 @@ function (x, datemin=NULL, dateformat="m/d/Y") {
 	# We have days as units. We want years with a "linear scale", i.e.: 1 year = 365.25 days, 1 month = 1/12 years
 	# We want also the integer value reflect exactly the current year, i.e.: 1997.xxx for dates in the year 1997
 	if(is.null(yearorig <- options("chron.origin")$year))
-		yearorig <- defyearorig
+		yearorig <- defyearorig	
 	x <- x/365.25 + yearorig
 	x
 }

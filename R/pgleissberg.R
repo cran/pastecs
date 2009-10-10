@@ -57,7 +57,7 @@ function(n, k, lower.tail=TRUE, two.tailed=FALSE) {
 				assign(".gleissberg.table", Gleiss, env = .GlobalEnv)	
 				invisible(NULL)
 			}
-
+			
 			# Determination of Gleissberg probability
 			ng <- ncalc[!Norm]
 			kg <- kcalc[!Norm]
@@ -67,8 +67,8 @@ function(n, k, lower.tail=TRUE, two.tailed=FALSE) {
 					cat("Creating Gleissberg distribution table...\n\n")
 					if (R.Version()$os == "Win32") {flush.console()}
 					gleissberg.calc()
-				}
-			}
+ 				}
+ 			}
 			.gleissberg.table <- as.matrix(.gleissberg.table)
 			if (two.tailed == TRUE) { 	# two-sided probability
 				# As Gleissberg distribution is asymmetric, we have to calculate both sides independently

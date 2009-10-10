@@ -15,7 +15,7 @@
   Sort variables (usually species in a species x stations matrix) in function of their abundance, either in number of non-null values, or in number of individuals (in log). The \code{f} coefficient allows adjusting weight given to each of these two criteria.
 }
 \synopsis{
-abund(x, f=0.2)
+abund(x, f=0.2) 
 \method{extract}{abund}(e, n, left=TRUE, ...)
 \method{identify}{abund}(x, label.pts=FALSE, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)
 \method{lines}{abund}(x, n=x$n, lvert=TRUE, lvars=TRUE, col=2, lty=2, ...)

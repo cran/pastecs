@@ -27,7 +27,7 @@ decloess(x, type="additive", s.window=NULL, s.degree=0, t.window=NULL,
 \value{
   a 'tsd' object
 }
-\references{
+\references{ 
 Cleveland, W.S., E. Grosse & W.M. Shyu, 1992. \emph{Local regression models. Chapter 8 of Statistical Models in S.} J.M. Chambers & T.J. Hastie (eds). Wadsworth & Brook/Cole.
 
 Cleveland, R.B.,  W.S. Cleveland, J.E. McRae, & I. Terpenning, 1990. \emph{STL: A seasonal-trend  decomposition  procedure based on loess.} J. Official Stat., 6:3-73.

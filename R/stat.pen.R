@@ -37,7 +37,7 @@ function(x, basic=FALSE, desc=FALSE) {
 					if (Nbrnull>0) {
 						PosMedian <- 0; PosMean <- 0; PosVar <- 0; PosStdDev <- 0; GeoMean <- 0
 					} else {
-						PosMedian <- NA; PosMean <- NA; PosVar <- NA; PosStdDev <- NA; GeoMean <- NA
+						PosMedian <- NA; PosMean <- NA; PosVar <- NA; PosStdDev <- NA; GeoMean <- NA 
 					}
 				} else {
 					PosMedian <- median(xpos); names(PosMedian) <- NULL
@@ -60,7 +60,7 @@ function(x, basic=FALSE, desc=FALSE) {
 		Res <- unlist(c(Res1, Res2, Res3))
 		Res
 	}
-
+	
 	# This is the body of stat.pen
 	Basic <- basic; Desc <- desc
 	# If x is a vector, stat.pen returns a vector with results

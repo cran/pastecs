@@ -50,7 +50,7 @@ turnpoints(x)
 }
 \details{
   This function tests if the time series is purely random or not. Kendall (1976) proposed a series of tests for this. Moreover, graphical methods using the position of the turning points to draw automatically envelopes around the data are implemented, and also the drawing of median points between these envelopes.
-
+  
   With a purely random time series, one expect to find, on average, a turning point (peak or pit that is, an observation that is preceeded and followed by, respectively, lower or higher observations) every 1.5 observation. Given it is impossible to determine if first and last observation are turning point, it gives:
 
   \deqn{E(p) = 2/3*(n-2)}
@@ -65,7 +65,7 @@ turnpoints(x)
 
   where P is the probability to observe a turning point at time t under the null hypothesis that the time series is purely random, and thus, the distribution of turning points follows a normal distribution.
 
-  The quantity of information I associated with this probability is:
+  The quantity of information I associated with this probability is:  
 
   \deqn{I = -log2 P(t)}
 
@@ -91,7 +91,7 @@ Regarding your specific question, 'info' is the quantity of information I associ
   \item{info}{ Quantity of information associated with this point (see details) }
 }
 
-\references{
+\references{ 
 Ibanez, F., 1982. \emph{Sur une nouvelle application de la theorie de l'information à la description des series chronologiques planctoniques.} J. Exp. Mar. Biol. Ecol., 4:619-632
 
 Kendall, M.G., 1976. \emph{Time-series, 2nd ed.} Charles Griffin & Co, London.

@@ -87,7 +87,7 @@ function(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL, deltat=1/frequenc
 		if (length(Res)==2) Res <- unlist(list(xmin=xmin, xmax=xmax, nbr.val=Nbrval, nbr.null=Nbrnull, nbr.na=Nbrna, min=min(y), max=max(y), median=Median, mean=Mean, std.dev=StdDev))
 		Res
 	}
-
+	
 	# This is the body of stat.slide
 	call <- match.call()
 	Basic <- basic; Desc <- desc; Norm <- norm; Pen <- pen; P <- p
@@ -99,23 +99,23 @@ function(x, y, xcut=NULL, xmin=min(x), n=NULL, frequency=NULL, deltat=1/frequenc
 	x <- x[srt]
 	y <- y[srt]
 	# Check arguments
-	if (!is.numeric(x) || !is.numeric(y))
+	if (!is.numeric(x) || !is.numeric(y)) 
 		stop("stat.slide: x and y must be numeric")
 	nx <- length(x)
-	if (nx != length(y))
+	if (nx != length(y)) 
 	    stop("x and y must have equal lengths")
-	if (nx < 3)
+	if (nx < 3) 
 	    stop("stat.slide requires at least three values for x and y")
 	# Eliminate entries with missing values
 	ok <- !(is.na(x) | is.na(y))
 	x <- x[ok]
 	y <- y[ok]
 	nx <- length(x)
-	if (nx < 3)
+	if (nx < 3) 
 	    stop("stat.slide requires at least three non-missing values for x and y")
 	# The different sequences are provided in xcut, or are calculated from xmin, frequency/deltat and n
 	if (is.null(xcut)) {									# calculate regular sequences
-		if (is.null(deltat) | deltat <= 0)
+		if (is.null(deltat) | deltat <= 0) 
 	    	stop("stat.slide requires deltat > 0")
 		# if n is not defined, then it is calculated
 		if (is.null(n)) {

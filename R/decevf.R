@@ -1,8 +1,7 @@
 "decevf" <-
 function(x, type="additive", lag=5, axes=1:2) {
-	call <- match.call()
 	x <- as.ts(x)
-	if (is.matrix(x) && ncol(x) != 1)
+	if (is.matrix(x) && ncol(x) != 1) 
 		stop("only univariate series are allowed")
 	if (!is.numeric(axes) || any(axes <= 0))
 		stop("axes must be a vector of positive numbers (ex 1:3)")
@@ -11,9 +10,9 @@ function(x, type="additive", lag=5, axes=1:2) {
 	# Check the type argument
 	TYPES <- c("additive", "multiplicative")
 		typeindex <- pmatch(type, TYPES)
-		if (is.na(typeindex))
+		if (is.na(typeindex)) 
 			stop("invalid type value")
-		if (typeindex == -1)
+		if (typeindex == -1) 
 			stop("ambiguous type value")
 		# make sure type is fully spelled
 		type <- switch(typeindex,

@@ -10,7 +10,7 @@ function(e, n, series=NULL, components=NULL, ...) {
 		}
 		# We create a series value that correspond to the extraction of n first series
 		series <- 1:n
-	} else {					# If series is provided, we test it
+	} else {					# If series is provided, we test it 
 		if (is.character(series)) {
 			names <- e$ts
 			series <- pmatch(series, names, nomatch=0)

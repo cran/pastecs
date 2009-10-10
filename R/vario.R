@@ -17,7 +17,7 @@ function(x, max.dist=length(x)/3, plotit=TRUE, vario.data=NULL) {
     	# Calculate mean values for each distance
     	res <- rep(0, max.dist)
     	for (i in 1:max.dist) {
-    		res[i] <- mean(val[val$distance == i,]$semivario, na.rm=TRUE)
+    		res[i] <- mean(val[val$distance == i,]$semivario, na.rm=TRUE)	
     	}
     	res <- list(distance=1:max.dist, semivario=res)
     	res <- as.data.frame(res)
