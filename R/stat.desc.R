@@ -56,7 +56,6 @@ function(x, basic=TRUE, desc=TRUE, norm=FALSE, p=.95) {
 				Kurt.2SE <- Kurt/(2*SE)
 				# Same remark as for Skew.2SE!
 				# This is the Shapiro-Wilk test of normality
-				# Now done with Depends: field require(stats)		# For Kolmogorov-Smirnov or Shapiro-Wilk normality tests in R
 				Ntest <- shapiro.test(x)
 				Ntest.W <- Ntest$statistic; names(Ntest.W) <- NULL
 				Ntest.p <- Ntest$p.value

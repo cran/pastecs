@@ -18,8 +18,8 @@ function(e, n, series=NULL, ...) {
 	} else {			# Use series to determine which series to extract
 		y <- as.matrix(e$y)[, series]
 	}		
-	# we create a 'ts' object
-	res <- ts(y, start=e$tspar$start, frequency=e$tspar$frequency)
+	# We create a 'ts' object
+	res <- ts(y, start = e$tspar$start, frequency = e$tspar$frequency)
 	attr(res, "units") <- e$units
 	res
 }

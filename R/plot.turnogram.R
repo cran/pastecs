@@ -1,5 +1,6 @@
 "plot.turnogram" <-
 function(x, level=0.05, lhorz=TRUE, lvert=TRUE, lcol=2, llty=2, xlog=TRUE, xlab=paste("interval (", x$units.text, ")", sep=""), ylab="I (bits)", main=paste(x$type, "turnogram for:",x$data), sub=paste(x$fun, "/", x$proba), ...) {
+
 	# The next function actually draws the graph
 	turnogram.graph <- function(X, Level, Xlog, Lhorz, Lvert, Lcol, Llty, Xlab, Ylab, Main, Sub, ...) {
 		X$info[!is.finite(X$info)] <- NA

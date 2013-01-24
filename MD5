@@ -1,5 +1,5 @@
-73a4a1f4e80330c3723e95c462bf645c *DESCRIPTION
-ea7f5ee39d67b937c643ce91cfb1d1b8 *NAMESPACE
+c053f8eb23bf6cdd40d044c5cf85f1dd *DESCRIPTION
+569ed33207058ea1ae6d713bb05adf08 *NAMESPACE
 5bccf4b3d84cdf256eb22648f683d27d *R/AutoD2.R
 aff75ef774e6bd5a4b23857ff30661cb *R/CenterD2.R
 8cd0f790c3c1dfaee3167946a557536f *R/CrossD2.R
@@ -20,7 +20,7 @@ e25a6754b839715689cb305578b5515f *R/disto.R
 d4f461270bc6d7610aeca73c55e8c679 *R/extract.R
 c96526525cadc68d429bce9459b3cb37 *R/extract.abund.R
 2086c7d17635aa73b01c331832dd3643 *R/extract.escouf.R
-187746ddadb192923239ff92f5fe6a51 *R/extract.regul.R
+9d09784f8938a34ef5fc05543c2ef8f2 *R/extract.regul.R
 9845443d3ad9ce890b2cd1ab81021904 *R/extract.tsd.R
 8cb65da478f9e920097b8b046f95b8ee *R/extract.turnogram.R
 b7cf24204c96905defed003351f5f80d *R/extract.turnpoints.R
@@ -41,13 +41,13 @@ a8bcee3f4d00d9d0e7ed910d4f5bb1bd *R/lines.abund.R
 05eb88b097ad9cd8c9a1976da2ac478e *R/local.trend.R
 3b7b7444f12ce2255ec29d965f295299 *R/match.tol.R
 8cdcce6ab23cde00b37e5947cf97ddad *R/pennington.R
-3e2b8a8c5ff379330ffd7869df30ca80 *R/pgleissberg.R
+d7d58f4086fa107349e93331a7149e53 *R/pgleissberg.R
 96923ee87d819e933801b13d1786d70b *R/plot.abund.R
 7d8c5cf8a199cfecb61dc58a7753fb7d *R/plot.escouf.R
 ac75d8328a1d956b8434fe1049bf9e24 *R/plot.regul.R
 0a997646fbc1420ce7fff74e6f8e36a2 *R/plot.stat.slide.R
 3f0dfb1f06aee852431e7507043fdf97 *R/plot.tsd.R
-c18991c93fc1ec751472e9428bafd344 *R/plot.turnogram.R
+c62802c79ad838eb6be74899e6019b31 *R/plot.turnogram.R
 e51b4b49a2c539e2143a2c84ae2a47ef *R/plot.turnpoints.R
 c0c3ab72eaa1b3f389c0f64ceacd0d39 *R/print.abund.R
 e72a3732baaa563a2aa3c18aa7b02d93 *R/print.escouf.R
@@ -74,7 +74,7 @@ d554439f24675fd3f8c65d140ac3c48b *R/reglin.R
 9241072c82cf3768b8b48b9a7ffd6923 *R/specs.R
 7f0e7deba26fcb3022b707a03d30723a *R/specs.regul.R
 3053da86fbbafd77e7b972b96bec9c72 *R/specs.tsd.R
-078e5fb9444b31ba8d96fe70b4c56003 *R/stat.desc.R
+d4e27f4eb6d65bb7f775e240b9312f2f *R/stat.desc.R
 73c609cd64800d79819cb148192ab17b *R/stat.pen.R
 72e49048df4f9a46352079b520cb4597 *R/stat.slide.R
 f0dd868a4631848769bb9f948fd4c8d6 *R/summary.abund.R
@@ -85,7 +85,7 @@ dab81c3048e4c1237004f74c75ffcce9 *R/summary.turnogram.R
 4acf91cbc4679d3731d09fd3c2f8e372 *R/summary.turnpoints.R
 2ddaeabac115736dd71749a89f165e01 *R/trend.test.R
 9d0f9c3a51a0684a29590cd3f38407bf *R/tsd.R
-33293d3e061c995a862e203bd4c2c928 *R/tseries.R
+a85f4760ab39ca4082f31b762334beaa *R/tseries.R
 d11ce6e1202d300f376c568b14e67862 *R/turnogram.R
 8e0f9ff9209693c929525e9efa6fad91 *R/turnpoints.R
 34f8aaa2f6beabe85a33d69a1309ee1b *R/vario.R
@@ -95,7 +95,7 @@ fba7fdae8c72eb1789d79bb21670bc6e *R/yearstodays.R
 97f6e0d4f597be4245defa40c12687d5 *data/marbio.rda
 514cecba1aedcd62f2ef7a359b859c41 *data/marphy.rda
 881baa8a4aa5d048cedb74cc2b3a95c9 *data/releve.rda
-65f059a34cf527bb65e55dbf04cc3753 *inst/doc/pastecs.pdf
+705a5bbb42feaa564377c9fcdae67704 *inst/doc/pastecs.pdf
 089fff0b6cbb4bb08e434cb0388ebc92 *man/AutoD2.Rd
 03f5dbbbe9c69a8787d4be7eb84710af *man/GetUnitText.Rd
 ccf549c5eefd30377d6209abbb37b714 *man/abund.Rd
@@ -141,3 +141,4 @@ e7182897b822f2ab5120e5f8a8a034d7 *man/stat.slide.Rd
 9d3ba23c7179484bf15cfbd0ed7c0661 *man/turnogram.Rd
 c950af6dfc2322637726295dace4316b *man/turnpoints.Rd
 48023967062d0eb11aa7034bb514fe72 *man/vario.Rd
+d60e1e043876a02180308bb837a17ea7 *pastecs-Ex.R
